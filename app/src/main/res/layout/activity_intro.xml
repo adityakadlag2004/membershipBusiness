@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.IntroActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerIntro"
+        android:layout_width="407dp"
+        android:layout_height="563dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewPagerIntro"
+        android:layout_centerHorizontal="true"
+        app:tabBackground="@drawable/indicator_selector"
+        app:tabIndicatorHeight="0dp">
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_intro_signIn"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/authbtnleft"
+            android:text="@string/sign_in"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_intro_SignUp"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_toEndOf="@id/btn_intro_signIn"
+            android:layout_toRightOf="@id/btn_intro_signIn"
+            android:background="@drawable/authbtnright"
+            android:text="@string/sign_up"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
