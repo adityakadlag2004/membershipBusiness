@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthViewModel
     private lateinit var googleSignInClient: GoogleSignInClient
-    private val RC_SIGN_IN = 120
+    private val RC_SIGN_IN = 130
     private val TAG = "LoginActivity"
     private lateinit var mAuth: FirebaseAuth
     private var currentuser: FirebaseUser? = null
