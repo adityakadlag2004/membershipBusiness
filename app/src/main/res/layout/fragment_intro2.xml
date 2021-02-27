@@ -20,7 +20,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            app:lottie_fileName="businessintro1.json"
+            app:lottie_fileName="businessintro2.json"
             app:lottie_loop="true">
 
         </com.airbnb.lottie.LottieAnimationView>
