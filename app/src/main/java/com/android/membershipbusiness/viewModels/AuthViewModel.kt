@@ -1,13 +1,14 @@
 package com.android.membershipbusiness.viewModels
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.android.membershipbusiness.repo.AuthRepository
 import com.android.membershipbusiness.repo.MainRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AuthViewModel(val repository: AuthRepository) {
+class AuthViewModel(val repository: AuthRepository) :ViewModel() {
 
     val email: MutableLiveData<String> = MutableLiveData()
 
