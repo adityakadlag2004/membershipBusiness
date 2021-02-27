@@ -6,17 +6,18 @@
     <string name="already_have_an_account_sign_in">Already have an Account? Sign In</string>
     <string name="dont_have_an_account_sign_up">New to ?? Sign up Now</string>
     <string name="sign_up">Sign Up</string>
-    <string name="display_name">Display Name</string>
     <string name="sign_out">Sign Out</string>
     <string name="name">Name</string>
     <string name="last">Last</string>
     <string name="id">ID</string>
     <string name="todo">TODO</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="manage_all_memberships_in_one_place">Manage all MemberShips In One Place</string>
-    <string name="desc11">Compare reviews, Features, Make Online payments with the app that manages your memberships</string>
+    <string name="title1">Manage Your Business Easily
+</string>
+    <string name="desc11"> Manage your Customers automatically. See all Active or Inactive Customers. Get Business Performance updates and
+automatically invite your inactive Customers</string>
     <string name="find">Find Best Services</string>
-    <string name="desc2">Compare and join Services like Gyms or Classes Online in your Area and Get Digital Membership.</string>
+    <string name="desc2">Automatically Send Emails on their Birthdays
+or any Special Offers</string>
     <string name="first_name">Name</string>
     <string name="phone_number">Contact Number</string>
     <string name="we_will_need">We will need Your Information to Begin</string>
@@ -41,24 +42,5 @@
     <string name="profile">Profile</string>
     <string name="_10">0</string>
     <string name="edit">Edit</string>
-    <string name="inactive">Inactive</string>
-    <string name="contact_number">Contact Number</string>
-    <string name="Gyms">Gyms</string>
-    <string name="entertainment">Entertainment</string>
-    <string name="yoga">Yoga</string>
-    <string name="dance_studio">Dance Studio</string>
-    <string name="meditation">Meditation</string>
-    <string name="clubs">Clubs and Pubs</string>
-    <string name="library">Library</string>
-    <string name="health_clubs">Health Clubs</string>
-    <string name="swimming">Swimming</string>
-    <string name="zumba">Zumba</string>
-    <string name="health">Health</string>
-    <string name="netflix">Netflix</string>
-    <string name="amazon_prime">Prime</string>
-    <string name="hotstar">Hotstar</string>
-    <string name="other">Other</string>
-    <string name="education">Education</string>
-    <string name="tuition">Tuition</string>
-    <string name="jee_iit">JEE/IIT</string>
+    <string name="title2">" Build Connectivity with Customers"</string>
 </resources>
