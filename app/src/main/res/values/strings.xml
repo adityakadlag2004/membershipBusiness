@@ -43,4 +43,7 @@ or any Special Offers</string>
     <string name="_10">0</string>
     <string name="edit">Edit</string>
     <string name="title2">" Build Connectivity with Customers"</string>
+    <string name="customers">Customers</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
