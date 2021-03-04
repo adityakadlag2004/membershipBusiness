@@ -33,9 +33,10 @@ class MainActivity : AppCompatActivity() {
 
         init()
 
-        viewModel.checkUserHasData().observe(this,{
+        viewModel.checkUserHasData().observe(this, {
             if (it == "no") {
-//                viewModel.sendUsertoAddUserDataActivity()
+                viewModel.sendUsertoAddOwnerDataActivity()
+                finish()
             }
         })
 
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         setCurrentFragment(homeFragment)
 
     }
+
     private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame_main, fragment)

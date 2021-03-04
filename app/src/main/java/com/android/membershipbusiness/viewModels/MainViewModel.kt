@@ -11,4 +11,8 @@ class MainViewModel(val repository: MainRepository) :ViewModel(){
         return repository.checkUserHasData()
     }
 
+    fun sendUsertoAddOwnerDataActivity() {
+        repository.sendUserToAddUserData()
+    }
+
 }
