@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MembershipBusiness"
         tools:ignore="AllowBackup">
-        <activity android:name=".activities.data.AddOwnerData"></activity>
+        <activity android:name=".activities.data.AddBusinessData"></activity>
+        <activity android:name=".activities.data.AddOwnerData" />
         <activity android:name=".activities.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

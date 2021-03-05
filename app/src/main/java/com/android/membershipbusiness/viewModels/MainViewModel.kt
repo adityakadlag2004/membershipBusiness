@@ -15,4 +15,11 @@ class MainViewModel(val repository: MainRepository) :ViewModel(){
         repository.sendUserToAddUserData()
     }
 
+    fun sendtoAddBusinessDataActivity() {
+        repository.sendUserToAddUserBusinessData()
+    }
+    fun checkUserBusinessData() :LiveData<String> {
+        return repository.checkBusinessData()
+    }
+
 }

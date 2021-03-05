@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         })
+        viewModel.checkUserBusinessData().observe(this, {
+            if (it == "no") {
+                viewModel.sendtoAddBusinessDataActivity()
+                finish()
+            }
+        })
 
         bottomNavView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
