@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.android.membershipbusiness.repo.AuthRepository
 import com.android.membershipbusiness.repo.BaseRepo
 import com.android.membershipbusiness.repo.MainRepository
+import com.android.membershipbusiness.repo.UserRepo
 import com.android.membershipbusiness.viewModels.AuthViewModel
 import com.android.membershipbusiness.viewModels.MainViewModel
+import com.android.membershipbusiness.viewModels.UserDataViewModel
 import java.lang.IllegalArgumentException
 
 @Suppress("UNCHECKED_CAST")
@@ -20,6 +22,9 @@ class ModalFactory(private val repository: BaseRepo) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(AuthViewModel::class.java) -> {
                 AuthViewModel(repository as AuthRepository) as T
+            }
+            modelClass.isAssignableFrom(UserDataViewModel::class.java) -> {
+                UserDataViewModel(repository as UserRepo) as T
             }
             else -> {
                 throw IllegalArgumentException("ViewModel Not Found")

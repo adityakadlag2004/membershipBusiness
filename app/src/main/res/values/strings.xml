@@ -46,4 +46,5 @@ or any Special Offers</string>
     <string name="customers">Customers</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_business_logo">Add Business Logo</string>
 </resources>
