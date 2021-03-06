@@ -22,4 +22,8 @@ class MainViewModel(val repository: MainRepository) :ViewModel(){
         return repository.checkBusinessData()
     }
 
+    fun checkUserApplicationStatus(): LiveData<String> {
+        return  repository.checkApplicationStatus()
+    }
+
 }

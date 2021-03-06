@@ -2,6 +2,7 @@ package com.android.membershipbusiness.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -43,8 +44,24 @@ class MainActivity : AppCompatActivity() {
             if (it == "no") {
                 viewModel.sendtoAddBusinessDataActivity()
                 finish()
+            } else {
+                viewModel.checkUserApplicationStatus().observe(this, { status ->
+                    if (status == "inReview") {
+                        Toast.makeText(this, "In Review", Toast.LENGTH_SHORT).show()
+                    } else if (status == "yes") {
+                        Toast.makeText(this, "Yes", Toast.LENGTH_SHORT).show()
+
+                    } else if (status == "rejected") {
+                        Toast.makeText(this, "rejected", Toast.LENGTH_SHORT).show()
+
+                    }
+                })
             }
         })
+
+
+
+
 
         bottomNavView.setOnNavigationItemSelectedListener {
             when (it.itemId) {

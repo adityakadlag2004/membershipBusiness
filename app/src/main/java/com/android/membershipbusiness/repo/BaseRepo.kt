@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.membershipbusiness.activities.MainActivity
 import com.android.membershipbusiness.activities.data.AddBusinessData
@@ -24,6 +25,7 @@ abstract class BaseRepo(val context: Context) {
     var username2Base = MutableLiveData<String>()
     var emailBase = MutableLiveData<String>()
     var profileImageBase = MutableLiveData<String>()
+    var applicationStatus = MutableLiveData<String>()
     var phone2 = MutableLiveData<String>()
     var count2 = MutableLiveData<String>()
     var curUser = mAuthBase.currentUser
@@ -161,5 +163,9 @@ abstract class BaseRepo(val context: Context) {
 
         Log.d(ContentValues.TAG, "onDataChange: Last Repo$username2Base ")
         return profileImageBase
+    }
+
+    fun checkApplicationStatus(): LiveData<String> {
+        return applicationStatus
     }
 }
