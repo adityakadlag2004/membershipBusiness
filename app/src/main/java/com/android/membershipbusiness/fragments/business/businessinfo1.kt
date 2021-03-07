@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.android.membershipbusiness.R
-
+import kotlinx.android.synthetic.main.fragment_businessinfo1.view.*
 
 
 class businessinfo1 : Fragment() {
@@ -24,7 +24,16 @@ class businessinfo1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_businessinfo1, container, false)
+        val view= inflater.inflate(R.layout.fragment_businessinfo1, container, false)
+
+        view.btn_continue_business1.setOnClickListener {
+            val manager=activity!!.supportFragmentManager
+            val frag2=businessinfo2()
+            manager.beginTransaction().replace(R.id.frame_addBusiness_data,frag2)
+                .addToBackStack(null)
+                .commit()
+        }
+        return view
     }
 
 

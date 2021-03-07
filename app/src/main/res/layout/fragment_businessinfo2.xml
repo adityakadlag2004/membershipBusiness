@@ -153,44 +153,46 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:id="@+id/input_days_start"
                 android:drawablePadding="12dp"
                 android:hint="@string/from"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="40dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="dropdown_menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_marginEnd="40dp"
                 >
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/monmedium"
                     android:id="@+id/startDay"
                     >
 
-                </com.google.android.material.textfield.TextInputEditText>
+                </AutoCompleteTextView>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="12dp"
                 android:hint="@string/to"
+                android:id="@+id/input_days_end"
                 android:layout_marginTop="20dp"
-
                 android:layout_marginStart="40dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginEnd="40dp"
+                app:endIconMode="dropdown_menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"                android:layout_marginEnd="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/monmedium"
                     android:id="@+id/endDay"
-                    >
+                    tools:ignore="LabelFor">
 
-                </com.google.android.material.textfield.TextInputEditText>
+                </AutoCompleteTextView>
             </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
 
