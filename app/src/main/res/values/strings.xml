@@ -47,4 +47,18 @@ or any Special Offers</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_business_logo">Add Business Logo</string>
+    <string name="add_your_business">Add your Business</string>
+    <string name="you_have_not_added_business_yet">You have not Added Business Yet!</string>
+    <string name="business_name">Business Name</string>
+    <string name="owner">Owner</string>
+    <string name="business_description">Business Description</string>
+    <string name="business_timing">Timing</string>
+    <string name="start_time">Start Time</string>
+    <string name="days">Days</string>
+    <string name="start_day">Start Day</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="business_contact">Business Contact</string>
+    <string name="business_phone_number">Business Phone Number</string>
+    <string name="business_email">Business Email</string>
 </resources>

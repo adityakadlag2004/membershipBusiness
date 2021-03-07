@@ -1,61 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar_main"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:elevation="1dp"
         app:title="Home"
-        android:id="@+id/toolBar_main"
-        >
+        tools:targetApi="lollipop">
 
     </com.google.android.material.appbar.MaterialToolbar>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
-        app:lottie_loop="true"
-        android:id="@+id/main_notice_lottie"
-        android:visibility="gone"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_notice_lottie"
-        android:layout_margin="20dp"
-        android:id="@+id/text_notice"
-        android:fontFamily="@font/monmedium"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:text="@string/email"
-        android:visibility="gone"
-        />
 
 
     <FrameLayout
         android:id="@+id/frame_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavView"
+        style="@style/Widget.MaterialComponents.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/bottomNavView"
-        app:menu="@menu/nav_menu"
-        >
+        app:menu="@menu/nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </RelativeLayout>

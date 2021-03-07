@@ -10,15 +10,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class UserDataViewModel(val repository : UserRepo) :ViewModel() {
+class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
 
-    fun uploadToFirebase(uri: Uri){
+    fun uploadToFirebase(uri: Uri) {
         CoroutineScope(Dispatchers.IO).launch {
             repository.uploadToFirebase(uri)
         }
     }
-    fun sendUserToMainActivity(){
+
+    fun sendUserToMainActivity() {
         repository.sendUserToMainActivity()
     }
 
@@ -28,13 +29,22 @@ class UserDataViewModel(val repository : UserRepo) :ViewModel() {
 //    }
 
     fun getUsername(): LiveData<String> {
-        val _username=repository.getUsername()
+        val _username = repository.getUsername()
         Log.d(ContentValues.TAG, "onDataChange: viewmodel ${_username.value} ")
         return _username
     }
 
     fun getImage(): LiveData<String> {
         return repository.getImage()
+    }
+
+    fun checkUserBusinessData(): LiveData<String> {
+
+        return repository.checkBusinessData()
+    }
+
+    fun sendtoAddBusinessDataActivity() {
+        repository.sendUserToAddUserBusinessData()
     }
 
 }

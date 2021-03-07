@@ -39,25 +39,9 @@ class MainActivity : AppCompatActivity() {
                 viewModel.sendUsertoAddOwnerDataActivity()
                 finish()
             }
-        })
-        viewModel.checkUserBusinessData().observe(this, {
-            if (it == "no") {
-                viewModel.sendtoAddBusinessDataActivity()
-                finish()
-            } else {
-                viewModel.checkUserApplicationStatus().observe(this, { status ->
-                    if (status == "inReview") {
-                        Toast.makeText(this, "In Review", Toast.LENGTH_SHORT).show()
-                    } else if (status == "yes") {
-                        Toast.makeText(this, "Yes", Toast.LENGTH_SHORT).show()
 
-                    } else if (status == "rejected") {
-                        Toast.makeText(this, "rejected", Toast.LENGTH_SHORT).show()
-
-                    }
-                })
-            }
         })
+
 
 
 
@@ -65,14 +49,22 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.miHome -> setCurrentFragment(homeFragment)
+                R.id.miHome -> {
+                    setCurrentFragment(homeFragment)
+                    toolBar_main.title = "Home"
+                }
 
+                R.id.miCustomers -> {
+                    setCurrentFragment(customerFrag)
+                    toolBar_main.title = "Customers"
 
-                R.id.miCustomers -> setCurrentFragment(customerFrag)
+                }
 
+                R.id.miSettings -> {
+                    setCurrentFragment(settingsFrag)
+                    toolBar_main.title = "Settings"
 
-                R.id.miSettings -> setCurrentFragment(settingsFrag)
-
+                }
 
             }
             true

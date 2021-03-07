@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.business.businessinfo1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/profileImage_Data"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/default_user"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/change_photo"
+            android:layout_gravity="center"
+            android:fontFamily="@font/monmedium"
+            android:text="@string/add_business_logo"
+            android:textColor="@color/blue"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:textSize="13sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:hint="@string/business_name"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="40dp"
+            app:endIconMode="clear_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="40dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monmedium"
+                android:id="@+id/add_Business_name"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:hint="@string/owner"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="40dp"
+            app:endIconMode="clear_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="40dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monmedium"
+                android:id="@+id/add_Business_OwnerName"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:drawablePadding="12dp"
+            android:hint="@string/business_description"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="40dp"
+            app:endIconMode="clear_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginEnd="40dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:fontFamily="@font/monmedium"
+                android:id="@+id/add_Business_desc"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_continue_business1"
+            android:fontFamily="@font/monmedium"
+            android:text="@string/continue2"
+            android:textColor="@color/white"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/btn_circular"
+            android:textAllCaps="false"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"/>
+    </LinearLayout>
+
+</FrameLayout>
