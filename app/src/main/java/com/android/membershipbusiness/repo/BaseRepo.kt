@@ -28,6 +28,7 @@ abstract class BaseRepo(val context: Context) {
     var applicationStatus = MutableLiveData<String>()
     var phone2 = MutableLiveData<String>()
     var count2 = MutableLiveData<String>()
+    var stage = MutableLiveData<String>()
     var curUser = mAuthBase.currentUser
 
 
@@ -37,6 +38,8 @@ abstract class BaseRepo(val context: Context) {
             context.startActivity(it)
         }
     }
+
+
 
     fun checkUserHasData(): MutableLiveData<String> {
         val user = mAuthBase.currentUser
@@ -74,15 +77,13 @@ abstract class BaseRepo(val context: Context) {
     }
 
     fun checkBusinessData(): MutableLiveData<String> {
+
         val user = mAuthBase.currentUser
+
         if (user != null) {
             myRefBase.child(user.uid).addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.hasChild(Constants.BUSINESS_NAME) && snapshot.hasChild(Constants.BUSINESS_OWNER)) {
-                        bdataCheck.value = "yes"
-                    } else {
-                        bdataCheck.value = "no"
-                    }
+                  bdataCheck.value=snapshot.child(Constants.DATAADDED).value.toString()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -91,6 +92,23 @@ abstract class BaseRepo(val context: Context) {
             })
         }
         return bdataCheck
+    }
+    fun checkstage(): MutableLiveData<String> {
+
+        val user = mAuthBase.currentUser
+
+        if (user != null) {
+            myRefBase.child(user.uid).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    stage.value=snapshot.child(Constants.STAGE).value.toString()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d(ContentValues.TAG, "onCancelled: ${error.message}")
+                }
+            })
+        }
+        return stage
     }
 
     fun getUsername(): MutableLiveData<String> {

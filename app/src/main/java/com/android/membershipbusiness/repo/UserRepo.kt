@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class UserRepo(val contextUser: Context): BaseRepo(contextUser) {
+class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
 
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.getReference(Constants.USERS)
@@ -33,7 +33,35 @@ class UserRepo(val contextUser: Context): BaseRepo(contextUser) {
                         sendUserToMainActivity()
                     }
                 }
-                .addOnFailureListener { Log.d(ContentValues.TAG, "uploadToFirebase: Failed Uploading") }
+                .addOnFailureListener {
+                    Log.d(
+                        ContentValues.TAG,
+                        "uploadToFirebase: Failed Uploading"
+                    )
+                }
+        }
+    }
+
+    fun uploadToFirebaseBusiness(uri: Uri) {
+        currentuser = mAuth.currentUser
+        if (currentuser != null) {
+            val fileReference: StorageReference = storageRef.child(currentuser!!.uid)
+                .child(Constants.BUSiNESS_LOGO)
+
+            fileReference.putFile(uri)
+                .addOnSuccessListener {
+                    fileReference.downloadUrl.addOnSuccessListener {
+                        myRef.child(currentuser!!.uid).child(Constants.BUSiNESS_LOGO)
+                            .setValue(it.toString())
+                        sendUserToMainActivity()
+                    }
+                }
+                .addOnFailureListener {
+                    Log.d(
+                        ContentValues.TAG,
+                        "uploadToFirebase: Failed Uploading"
+                    )
+                }
         }
     }
 

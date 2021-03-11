@@ -48,12 +48,9 @@ class Home : Fragment() {
             .get(UserDataViewModel::class.java)
 
         viewModel.checkUserBusinessData().observe(viewLifecycleOwner, { data ->
-            if (data == "no") {
+            if (data =="notall") {
                 view.add_Business.visibility = View.VISIBLE
-            } else if (data == "yes") {
-                view.add_Business.visibility = View.GONE
             }
-
         })
         view.add_Business.setOnClickListener {
             viewModel.sendtoAddBusinessDataActivity()

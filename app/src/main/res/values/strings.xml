@@ -48,7 +48,7 @@ or any Special Offers</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_business_logo">Add Business Logo</string>
     <string name="add_your_business">Add your Business</string>
-    <string name="you_have_not_added_business_yet">You have not Added Business Yet!</string>
+    <string name="you_have_not_added_business_yet">You have not Added All Business Yet!</string>
     <string name="business_name">Business Name</string>
     <string name="owner">Owner</string>
     <string name="business_description">Business Description</string>

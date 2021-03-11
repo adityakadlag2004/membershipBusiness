@@ -23,6 +23,11 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
         repository.sendUserToMainActivity()
     }
 
+    fun checkStage():LiveData<String>
+    {
+       return repository.checkstage()
+    }
+
 //    fun updateUser(username:String?=null,contactnumber:String?=null)
 //    {
 //        repository.updateUser(username,contactnumber)
@@ -45,6 +50,10 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
     fun sendtoAddBusinessDataActivity() {
         repository.sendUserToAddUserBusinessData()
+    }
+
+    fun uploadToFirebaseBusiness(imageUri: Uri) {
+        repository.uploadToFirebaseBusiness(imageUri)
     }
 
 }

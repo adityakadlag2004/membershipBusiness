@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import com.android.membershipbusiness.activities.MainActivity
 import com.android.membershipbusiness.auth.LoginActivity
@@ -22,24 +23,31 @@ class AuthRepository(context: Context) : BaseRepo(context) {
 
     fun login(email: String, password: String) {
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        if (mAuth.currentUser!!.isEmailVerified) {
-                            Toast.makeText(context, "Signed In as $email", Toast.LENGTH_SHORT).show()
-                            Intent(context, MainActivity::class.java).also {
-                                it.flags =
-                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                context.startActivity(it)
+            if(Patterns.EMAIL_ADDRESS.matcher(email).matches())
+            {
+                mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            if (mAuth.currentUser!!.isEmailVerified) {
+                                Toast.makeText(context, "Signed In as $email", Toast.LENGTH_SHORT).show()
+                                Intent(context, MainActivity::class.java).also {
+                                    it.flags =
+                                        Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    context.startActivity(it)
+                                }
+                            } else {
+                                Toast.makeText(context, "First Verify Your Email", Toast.LENGTH_SHORT)
+                                    .show()
                             }
                         } else {
-                            Toast.makeText(context, "First Verify Your Email", Toast.LENGTH_SHORT)
-                                .show()
+                            Log.d(ContentValues.TAG, "login: Login Failed :- ${task.exception}")
                         }
-                    } else {
-                        Log.d(ContentValues.TAG, "login: Login Failed :- ${task.exception}")
                     }
-                }
+            }
+            else{
+                Toast.makeText(context, "Enter a valid Email Address", Toast.LENGTH_SHORT).show()
+            }
+
         } else {
             Toast.makeText(context, "Fill The Fields", Toast.LENGTH_SHORT).show()
         }
@@ -64,6 +72,7 @@ class AuthRepository(context: Context) : BaseRepo(context) {
 
     fun register(email: String, password: String) {
         if (email.isNotEmpty() && password.isNotEmpty()) {
+            if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -94,6 +103,10 @@ class AuthRepository(context: Context) : BaseRepo(context) {
                         Log.d(ContentValues.TAG, "login: Login Failed :- ${task.exception}")
                     }
                 }
+        }
+            else{
+                Toast.makeText(context, "Enter a valid Email Address", Toast.LENGTH_SHORT).show()
+            }
         } else {
             Toast.makeText(context, "Fill The Fields", Toast.LENGTH_SHORT).show()
         }

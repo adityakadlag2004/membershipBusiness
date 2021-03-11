@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.business.businessinfo2">
+    tools:context=".fragments.business.Businessinfo2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monmedium"
                 android:inputType="textEmailAddress"
-                android:id="@+id/add_Business_email"
+                android:id="@+id/add_Business_email_business2"
                 >
 
             </com.google.android.material.textfield.TextInputEditText>

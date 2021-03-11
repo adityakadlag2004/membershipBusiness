@@ -1,6 +1,10 @@
 package com.android.membershipbusiness.other
 
 object Constants {
+    const val BUSINESS_EMAIL="business_email"
+    const val DATAADDED="dataadded"
+    const val STAGE="data_stage"
+    val BUSiNESS_LOGO="business_logo"
     const val LICENCE_GRANTED="licence_granted"
     const val USERS = "BusinessUsers"
     const val USER_ID = "userId"
@@ -23,4 +27,9 @@ object Constants {
     const val BUSINESS_CONTACTNUMBER="OwnerPhone"
     const val BUSINESS_PROFILE_IMAGE="businessProfileImage"
     const val BUSINESS_BACKGROUND_IMAGE="backImage"
+
+    const val BUSINESS_STARTTIME="b_startTime"
+    const val BUSINESS_ENDTIME="b_endTime"
+    const val BUSINESS_STARTDAY="b_startDay"
+    const val BUSINESS_ENDDAY="b_endday"
 }
