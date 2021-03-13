@@ -12,7 +12,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
-
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.getReference(Constants.USERS)
     private var mAuth = FirebaseAuth.getInstance()

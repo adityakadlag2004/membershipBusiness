@@ -62,4 +62,8 @@ or any Special Offers</string>
     <string name="business_phone_number">Business Phone Number</string>
     <string name="business_email">Business Email</string>
     <string name="sample_text">Sample Text</string>
+    <string name="business_type">Business Type</string>
+    <string name="address">Address</string>
+    <string name="add_photos">Add photos</string>
+    <string name="submit">Submit</string>
 </resources>
