@@ -38,6 +38,7 @@ class BusinessInfo3 : Fragment() {
             "Tuition",
             "Laugh Club",
             "Massage Center",
+            "If not available Type Yourself"
         )
         val adapter: ArrayAdapter<String> = ArrayAdapter(
             view.context,
