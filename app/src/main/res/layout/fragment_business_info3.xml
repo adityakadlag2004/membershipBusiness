@@ -5,21 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="1dp"
 
-        app:title="Type and Images"
-        tools:targetApi="lollipop">
-
-    </com.google.android.material.appbar.MaterialToolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_business_type"
@@ -65,102 +57,117 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="40dp"
+            android:drawablePadding="12dp"
+            android:hint="@string/website_optional"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/add_website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monmedium"
+                android:inputType="text">
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="10dp">
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_images"
+                android:id="@+id/tv_addImages"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/monmedium"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"/>
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:elevation="2dp"
-                android:src="@drawable/addimage"
-                tools:targetApi="lollipop" />
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_centerHorizontal="true"
-                android:elevation="2dp"
-                android:src="@drawable/addimage"
-                tools:targetApi="lollipop" />
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:elevation="2dp"
-                android:src="@drawable/addimage"
-                tools:targetApi="lollipop" />
-
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/add"
+                android:id="@+id/addAllImages"
+                android:layout_toEndOf="@+id/tv_addImages"
+                android:layout_toRightOf="@+id/tv_addImages"
+                android:layout_marginLeft="10dp" />
         </RelativeLayout>
 
+        <ImageSwitcher
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:id="@+id/images"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="10dp">
+            android:id="@+id/nav_rel_layout"
+            android:visibility="gone"
+            android:gravity="center"
+            >
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_btn"
+            android:textAllCaps="false"
+            android:fontFamily="@font/monmedium"
+            android:text="@string/back"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            />
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
-                android:elevation="2dp"
-                android:src="@drawable/addimage"
-                tools:targetApi="lollipop" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/back_btn"
+                android:id="@+id/front_btn"
+                android:layout_marginStart="20dp"
+                android:layout_toRightOf="@id/back_btn"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/monmedium"
+                android:text="@string/next" />
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_centerHorizontal="true"
-                android:elevation="2dp"
-                android:src="@drawable/addimage"
-                tools:targetApi="lollipop" />
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="40dp"
-                android:elevation="2dp"
-                android:src="@drawable/addimage"
-                tools:targetApi="lollipop" />
 
         </RelativeLayout>
-
         <ProgressBar
+            android:id="@+id/progressBar_data"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/progressBar_data"
-            android:visibility="invisible"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <Button
+            android:id="@+id/btn_continue_business3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_continue_business3"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/btn_circular"
             android:fontFamily="@font/monmedium"
             android:text="@string/continue2"
-            android:textColor="@color/white"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/btn_circular"
             android:textAllCaps="false"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"/>
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </FrameLayout>

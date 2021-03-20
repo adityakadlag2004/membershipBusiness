@@ -66,4 +66,8 @@ or any Special Offers</string>
     <string name="address">Address</string>
     <string name="add_photos">Add photos</string>
     <string name="submit">Submit</string>
+    <string name="website_optional">Website(Optional)</string>
+    <string name="add_images">Add Images</string>
+    <string name="add">Add</string>
+    <string name="back">Back</string>
 </resources>
