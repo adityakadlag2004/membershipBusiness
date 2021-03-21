@@ -1,6 +1,7 @@
 package com.android.membershipbusiness.other
 
 object Constants {
+    const val BUSINESS_GALLERY="businessImages"
     const val BUSINESS_EMAIL="business_email"
     const val DATAADDED="dataadded"
     const val STAGE="data_stage"
@@ -21,6 +22,9 @@ object Constants {
 
     //Business Details
     const val BUSINESS_NAME="businessName"
+    const val BUSINESS_TYPE="businessType"
+    const val BUSINESS_WEBSITE="businessweb"
+
     const val BUSINESS_ADDRESS="businessAddress"
     const val BUSINESS_OWNER="businessOwner"
     const val BUSINESS_DESC="businessDesc"

@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import java.util.ArrayList
 
 class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
     private var database = FirebaseDatabase.getInstance()
@@ -61,6 +62,32 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                         "uploadToFirebase: Failed Uploading"
                     )
                 }
+        }
+    }
+
+    fun uploadBusinessImages(imageList: ArrayList<Uri>) {
+        currentuser=mAuth.currentUser
+        if (currentuser!=null)
+        {
+          for (i in 0 until imageList.size)
+          {
+              val fileReference: StorageReference = storageRef.child(currentuser!!.uid)
+                  .child(Constants.BUSINESS_GALLERY).child(i.toString())
+
+              fileReference.putFile(imageList[i])
+                  .addOnSuccessListener {
+                      fileReference.downloadUrl.addOnSuccessListener {
+                          myRef.child(currentuser!!.uid).child(Constants.BUSINESS_GALLERY).push()
+                              .setValue(it.toString())
+                      }
+                  }
+                  .addOnFailureListener {
+                      Log.d(
+                          ContentValues.TAG,
+                          "uploadToFirebase: Failed Uploading"
+                      )
+                  }
+          }
         }
     }
 

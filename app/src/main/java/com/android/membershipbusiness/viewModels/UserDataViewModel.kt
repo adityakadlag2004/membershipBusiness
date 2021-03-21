@@ -9,6 +9,7 @@ import com.android.membershipbusiness.repo.UserRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.ArrayList
 
 class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
@@ -54,6 +55,10 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
     fun uploadToFirebaseBusiness(imageUri: Uri) {
         repository.uploadToFirebaseBusiness(imageUri)
+    }
+
+    fun uploadBusinessImages(imageList: ArrayList<Uri>) {
+        repository.uploadBusinessImages(imageList)
     }
 
 }

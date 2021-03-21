@@ -17,12 +17,14 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.di.DaggerFactoryComponent
+import com.android.membershipbusiness.other.Constants
 import com.android.membershipbusiness.repo.UserRepo
 import com.android.membershipbusiness.viewModels.UserDataViewModel
 import com.android.mvvmdatabind2.di.modules.FactoryModule
 import com.android.mvvmdatabind2.di.modules.RepositoryModule
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_business_info3.*
 import kotlinx.android.synthetic.main.fragment_business_info3.view.*
 import kotlinx.android.synthetic.main.fragment_businessinfo2.view.*
@@ -34,6 +36,8 @@ class BusinessInfo3 : Fragment() {
     private lateinit var component: DaggerFactoryComponent
     private var currentuser: FirebaseUser? = null
     lateinit var imageList: ArrayList<Uri>
+    private var database = FirebaseDatabase.getInstance()
+    private var myRef = database.getReference(Constants.USERS)
     var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +56,7 @@ class BusinessInfo3 : Fragment() {
         val view = inflater.inflate(R.layout.fragment_business_info3, container, false)
 
         view.addAllImages.setOnClickListener {
+            imageList.clear()
             val galleryIntent = Intent()
             galleryIntent.apply {
                 putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
@@ -60,6 +65,7 @@ class BusinessInfo3 : Fragment() {
                 startActivityForResult(galleryIntent, 2)
             }
         }
+
         val types = arrayOf(
             "Gym",
             "Yoga Classes",
@@ -73,6 +79,7 @@ class BusinessInfo3 : Fragment() {
             "Massage Center",
             "If not available Type Yourself"
         )
+
         component = DaggerFactoryComponent.builder()
             .repositoryModule(RepositoryModule(view!!.context))
             .factoryModule(FactoryModule(UserRepo(view.context)))
@@ -86,6 +93,45 @@ class BusinessInfo3 : Fragment() {
         )
 
 
+
+        view.btn_continue_business3.setOnClickListener {
+            view.progressBar_data.visibility = View.VISIBLE
+            val businessType = view.business_type.text.toString()
+            val address = view.add_address.text.toString()
+            val website = view.add_website.text.toString()
+
+            if (businessType.isNotEmpty()) {
+                if (address.isNotEmpty()) {
+                    if (imageList.isNotEmpty()) {
+                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_TYPE)
+                            .setValue(businessType)
+                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_ADDRESS)
+                            .setValue(address)
+                        if (website.isNotEmpty())
+                            myRef.child(currentuser!!.uid).child(Constants.BUSINESS_WEBSITE)
+                                .setValue(website)
+
+                        viewModel.uploadBusinessImages(imageList)
+
+
+                    } else {
+                        Toast.makeText(
+                            view.context,
+                            "At Least Select One Image",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        view.progressBar_data.visibility = View.GONE
+                    }
+                } else {
+                    Toast.makeText(view.context, "Provide Your Address", Toast.LENGTH_SHORT).show()
+                    view.progressBar_data.visibility = View.GONE
+                }
+            } else {
+                Toast.makeText(view.context, "Select Your Business Type", Toast.LENGTH_SHORT).show()
+                view.progressBar_data.visibility = View.GONE
+            }
+
+        }
 
         view.business_type.setAdapter(adapter)
 
@@ -113,6 +159,7 @@ class BusinessInfo3 : Fragment() {
             }
 
         }
+
         return view
     }
 
