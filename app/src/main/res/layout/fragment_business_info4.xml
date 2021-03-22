@@ -15,9 +15,10 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
+            android:elevation="1dp"
             android:layout_height="?attr/actionBarSize"
             app:title="Personal Details"
-            >
+            tools:targetApi="lollipop">
 
         </com.google.android.material.appbar.MaterialToolbar>
 
