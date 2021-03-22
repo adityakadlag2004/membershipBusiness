@@ -9,6 +9,7 @@ import com.android.membershipbusiness.R
 import com.android.membershipbusiness.di.DaggerFactoryComponent
 import com.android.membershipbusiness.fragments.business.BusinessInfo1
 import com.android.membershipbusiness.fragments.business.BusinessInfo3
+import com.android.membershipbusiness.fragments.business.BusinessInfo4
 import com.android.membershipbusiness.fragments.business.Businessinfo2
 import com.android.membershipbusiness.other.Constants
 import com.android.membershipbusiness.repo.UserRepo
@@ -29,6 +30,7 @@ class AddBusinessData : AppCompatActivity() {
     var frame1 = BusinessInfo1()
     var frame2 = Businessinfo2()
     var frame3 = BusinessInfo3()
+    var frame4=BusinessInfo4()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +56,9 @@ class AddBusinessData : AppCompatActivity() {
             }
             else if(it=="stage2"){
                 setCurrentFragment(frame3)
+            }
+            else if(it=="stage3"){
+                setCurrentFragment(frame4)
             }
         })
     }

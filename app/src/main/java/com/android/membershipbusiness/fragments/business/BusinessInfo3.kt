@@ -110,8 +110,16 @@ class BusinessInfo3 : Fragment() {
                         if (website.isNotEmpty())
                             myRef.child(currentuser!!.uid).child(Constants.BUSINESS_WEBSITE)
                                 .setValue(website)
+                        myRef.child(currentuser!!.uid).child(Constants.STAGE).setValue("stage3")
+
 
                         viewModel.uploadBusinessImages(imageList)
+                        val manager = activity!!.supportFragmentManager
+                        val frag4 = BusinessInfo4()
+                        manager.beginTransaction().replace(R.id.frame_addBusiness_data, frag4)
+                            .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
+                            .commit()
+
 
 
                     } else {

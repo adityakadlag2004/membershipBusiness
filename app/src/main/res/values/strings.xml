@@ -70,4 +70,8 @@ or any Special Offers</string>
     <string name="add_images">Add Images</string>
     <string name="add">Add</string>
     <string name="back">Back</string>
+    <string name="add_your_pan_card_photo">Add Your Pan Card Photo</string>
+    <string name="add_addhar_card_photo">Add Addhar Card Photo</string>
+    <string name="google_pay_number">Google Pay Number</string>
+    <string name="upi_id">Upi ID</string>
 </resources>
