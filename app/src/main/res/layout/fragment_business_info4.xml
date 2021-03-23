@@ -1,111 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.business.BusinessInfo4">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:ignore="UselessLeaf"
-        >
+        tools:ignore="UselessLeaf">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:elevation="1dp"
             android:layout_height="?attr/actionBarSize"
+            android:elevation="1dp"
             app:title="Personal Details"
             tools:targetApi="lollipop">
 
         </com.google.android.material.appbar.MaterialToolbar>
-
-     <RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:id="@+id/addPan"
-         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_your_pan_card_photo"
-            android:layout_margin="20dp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/monmedium"
-            android:textSize="18sp"
-            android:id="@+id/notice_addPan"
-            />
-
-         <ImageView
-             android:layout_width="150dp"
-             android:layout_height="150dp"
-             android:layout_centerInParent="true"
-             android:layout_below="@id/notice_addPan"
-             android:layout_marginStart="10dp"
-             android:layout_marginEnd="10dp"
-             android:layout_marginTop="10dp"
-             android:contentDescription="@string/to"
-             android:src="@drawable/upload_24"
-
-             />
-
-     </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/addAddhar"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_addhar_card_photo"
-                android:layout_margin="20dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/monmedium"
-                android:textSize="18sp"
-                android:id="@+id/notice_addAddhar"
-                />
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_centerInParent="true"
-                android:layout_below="@id/notice_addAddhar"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@string/to"
-                android:src="@drawable/upload_24"
-
-                />
-
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="40dp"
-            android:drawablePadding="12dp"
-            android:hint="@string/google_pay_number"
-            app:endIconMode="clear_text">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/google_pay_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/monmedium"
-                >
-
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -128,20 +42,115 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <RelativeLayout
+            android:id="@+id/addPan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/notice_addPan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/monmedium"
+                android:text="@string/add_your_pan_card_photo"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/panView"
+                android:layout_below="@id/notice_addPan"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/to"
+                android:src="@drawable/upload_24"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/addAddhar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/notice_addAddhar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/monmedium"
+                android:text="@string/add_addhar_card_photo"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@id/notice_addAddhar"
+                android:layout_centerInParent="true"
+                android:id="@+id/addharView"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/to"
+                android:src="@drawable/upload_24"
+
+                />
+
+        </RelativeLayout>
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="40dp"-->
+        <!--            android:layout_marginTop="30dp"-->
+        <!--            android:layout_marginEnd="40dp"-->
+        <!--            android:drawablePadding="12dp"-->
+        <!--            android:hint="@string/google_pay_number"-->
+        <!--            app:endIconMode="clear_text">-->
+
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/google_pay_number"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:fontFamily="@font/monmedium"-->
+        <!--                >-->
+
+        <!--            </com.google.android.material.textfield.TextInputEditText>-->
+
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/progress_bar_pan"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
 
         <Button
+            android:id="@+id/btn_continue_business4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_continue_business4"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/btn_circular"
             android:fontFamily="@font/monmedium"
             android:text="@string/continue2"
-            android:textColor="@color/white"
-            android:layout_marginTop="60dp"
-            android:background="@drawable/btn_circular"
             android:textAllCaps="false"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"/>
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
     </LinearLayout>
 
 </ScrollView>

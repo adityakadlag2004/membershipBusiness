@@ -1,6 +1,10 @@
 package com.android.membershipbusiness.other
 
 object Constants {
+    const val UPIID="upiId"
+    const val PAN="pan"
+    const val ADDHAR="addhar"
+    const val PERSONAL_DETAILS="personalDetails"
     const val BUSINESS_GALLERY="businessImages"
     const val BUSINESS_EMAIL="business_email"
     const val DATAADDED="dataadded"

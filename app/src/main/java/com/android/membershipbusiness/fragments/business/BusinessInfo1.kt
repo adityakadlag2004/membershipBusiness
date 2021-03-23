@@ -41,7 +41,6 @@ class BusinessInfo1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_businessinfo1, container, false)
         mAuth = FirebaseAuth.getInstance()
         currentuser = mAuth.currentUser

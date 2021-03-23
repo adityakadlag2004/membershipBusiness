@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.di.DaggerFactoryComponent
@@ -26,6 +27,7 @@ import kotlinx.android.synthetic.main.fragment_businessinfo2.view.*
 class Businessinfo2 : Fragment() {
     var mAuth = FirebaseAuth.getInstance()
     var imageUri: Uri? = null
+    lateinit var manager:FragmentManager
     var currentuser: FirebaseUser? = null
     lateinit var viewModel: UserDataViewModel
     val database = FirebaseDatabase.getInstance()
@@ -75,7 +77,6 @@ class Businessinfo2 : Fragment() {
                     myRef.child(uid).child(Constants.BUSINESS_ENDDAY).setValue(endDay)
                     myRef.child(uid).child(Constants.STAGE).setValue("stage2")
                         .addOnSuccessListener {
-                            val manager = activity!!.supportFragmentManager
                             val frag3 = BusinessInfo3()
                             manager.beginTransaction().replace(R.id.frame_addBusiness_data, frag3)
                                 .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
@@ -109,5 +110,10 @@ class Businessinfo2 : Fragment() {
         return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        manager = activity!!.supportFragmentManager
+
+    }
 
 }

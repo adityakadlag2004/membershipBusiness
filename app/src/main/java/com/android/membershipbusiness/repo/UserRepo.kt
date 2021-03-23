@@ -53,7 +53,6 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                     fileReference.downloadUrl.addOnSuccessListener {
                         myRef.child(currentuser!!.uid).child(Constants.BUSiNESS_LOGO)
                             .setValue(it.toString())
-                        sendUserToMainActivity()
                     }
                 }
                 .addOnFailureListener {
@@ -66,28 +65,70 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
     }
 
     fun uploadBusinessImages(imageList: ArrayList<Uri>) {
-        currentuser=mAuth.currentUser
-        if (currentuser!=null)
-        {
-          for (i in 0 until imageList.size)
-          {
-              val fileReference: StorageReference = storageRef.child(currentuser!!.uid)
-                  .child(Constants.BUSINESS_GALLERY).child(i.toString())
+        currentuser = mAuth.currentUser
+        if (currentuser != null) {
+            for (i in 0 until imageList.size) {
+                val fileReference: StorageReference = storageRef.child(currentuser!!.uid)
+                    .child(Constants.BUSINESS_GALLERY).child(i.toString())
 
-              fileReference.putFile(imageList[i])
-                  .addOnSuccessListener {
-                      fileReference.downloadUrl.addOnSuccessListener {
-                          myRef.child(currentuser!!.uid).child(Constants.BUSINESS_GALLERY).push()
-                              .setValue(it.toString())
-                      }
-                  }
-                  .addOnFailureListener {
-                      Log.d(
-                          ContentValues.TAG,
-                          "uploadToFirebase: Failed Uploading"
-                      )
-                  }
-          }
+                fileReference.putFile(imageList[i])
+                    .addOnSuccessListener {
+                        fileReference.downloadUrl.addOnSuccessListener {
+                            myRef.child(currentuser!!.uid).child(Constants.BUSINESS_GALLERY).push()
+                                .setValue(it.toString())
+                        }
+                    }
+                    .addOnFailureListener {
+                        Log.d(
+                            ContentValues.TAG,
+                            "uploadToFirebase: Failed Uploading"
+                        )
+                    }
+            }
+        }
+    }
+
+    fun uploadPan(imageUri: Uri) {
+        currentuser = mAuth.currentUser
+        if (currentuser != null) {
+            val fileReference: StorageReference = storageRef.child(currentuser!!.uid)
+                .child(Constants.PERSONAL_DETAILS).child(Constants.PAN)
+
+            fileReference.putFile(imageUri)
+                .addOnSuccessListener {
+                    fileReference.downloadUrl.addOnSuccessListener {
+                        myRef.child(currentuser!!.uid).child(Constants.PAN)
+                            .setValue(it.toString())
+                    }
+                }
+                .addOnFailureListener {
+                    Log.d(
+                        ContentValues.TAG,
+                        "uploadToFirebase: Failed Uploading"
+                    )
+                }
+        }
+    }
+
+    fun uploadAddhar(imageUri: Uri) {
+        currentuser = mAuth.currentUser
+        if (currentuser != null) {
+            val fileReference: StorageReference = storageRef.child(currentuser!!.uid)
+                .child(Constants.PERSONAL_DETAILS).child(Constants.ADDHAR)
+
+            fileReference.putFile(imageUri)
+                .addOnSuccessListener {
+                    fileReference.downloadUrl.addOnSuccessListener {
+                        myRef.child(currentuser!!.uid).child(Constants.ADDHAR)
+                            .setValue(it.toString())
+                    }
+                }
+                .addOnFailureListener {
+                    Log.d(
+                        ContentValues.TAG,
+                        "uploadToFirebase: Failed Uploading"
+                    )
+                }
         }
     }
 

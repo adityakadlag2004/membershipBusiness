@@ -34,15 +34,7 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 //        repository.updateUser(username,contactnumber)
 //    }
 
-    fun getUsername(): LiveData<String> {
-        val _username = repository.getUsername()
-        Log.d(ContentValues.TAG, "onDataChange: viewmodel ${_username.value} ")
-        return _username
-    }
 
-    fun getImage(): LiveData<String> {
-        return repository.getImage()
-    }
 
     fun checkUserBusinessData(): LiveData<String> {
 
@@ -56,6 +48,17 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
     fun uploadToFirebaseBusiness(imageUri: Uri) {
         repository.uploadToFirebaseBusiness(imageUri)
     }
+
+    fun uploadPanCard(imageUri: Uri)
+    {
+        repository.uploadPan(imageUri)
+    }
+
+    fun uploadAddharCard(imageUri: Uri)
+    {
+        repository.uploadAddhar(imageUri)
+    }
+
 
     fun uploadBusinessImages(imageList: ArrayList<Uri>) {
         repository.uploadBusinessImages(imageList)

@@ -74,4 +74,6 @@ or any Special Offers</string>
     <string name="add_addhar_card_photo">Add Addhar Card Photo</string>
     <string name="google_pay_number">Google Pay Number</string>
     <string name="upi_id">Upi ID</string>
+    <string name="applicationNotice">Your Application is in Review</string>
+    <string name="subNoticeApplication">It may take Few Days</string>
 </resources>
