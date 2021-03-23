@@ -50,12 +50,16 @@ class Home : Fragment() {
         viewModel.checkUserBusinessData().observe(viewLifecycleOwner, { data ->
             if (data == "notall") {
                 view.add_Business.visibility = View.VISIBLE
+                view.main_notice_lottie.visibility = View.GONE
+
             } else if (data == "inreview") {
+                view.main_notice_lottie.visibility = View.VISIBLE
                 view.add_Business.visibility = View.VISIBLE
                 view.main_notice1.text = view.resources.getString(R.string.applicationNotice)
                 view.add_Business_notice.text =
                     view.resources.getString(R.string.subNoticeApplication)
             } else {
+                view.main_notice_lottie.visibility = View.GONE
                 view.add_Business.visibility = View.GONE
             }
         })
