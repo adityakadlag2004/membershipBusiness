@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-// TODO: Rename parameter arguments, choose names that match
 
 
 class Home : Fragment() {
@@ -25,6 +24,7 @@ class Home : Fragment() {
     private lateinit var viewModel: UserDataViewModel
     private lateinit var component: DaggerFactoryComponent
     private var currentuser: FirebaseUser? = null
+    var state = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,6 @@ class Home : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         mAuth = FirebaseAuth.getInstance()
         currentuser = mAuth.currentUser
@@ -51,8 +50,10 @@ class Home : Fragment() {
             if (data == "notall") {
                 view.add_Business.visibility = View.VISIBLE
                 view.main_notice_lottie.visibility = View.GONE
+                state = "notall"
 
             } else if (data == "inreview") {
+                state = "inreview"
                 view.main_notice_lottie.visibility = View.VISIBLE
                 view.add_Business.visibility = View.VISIBLE
                 view.main_notice1.text = view.resources.getString(R.string.applicationNotice)
@@ -64,7 +65,9 @@ class Home : Fragment() {
             }
         })
         view.add_Business.setOnClickListener {
-            viewModel.sendtoAddBusinessDataActivity()
+            if (state != "inreview") {
+                viewModel.sendtoAddBusinessDataActivity()
+            }
         }
         return view
     }

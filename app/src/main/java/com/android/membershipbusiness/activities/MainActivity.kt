@@ -2,6 +2,7 @@ package com.android.membershipbusiness.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.miSettings -> {
                     setCurrentFragment(settingsFrag)
-                    toolBar_main.title = "Settings"
+                    toolBar_main.visibility= View.GONE
 
                 }
 

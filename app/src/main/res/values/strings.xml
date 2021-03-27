@@ -76,4 +76,6 @@ or any Special Offers</string>
     <string name="upi_id">Upi ID</string>
     <string name="applicationNotice">Your Application is in Review</string>
     <string name="subNoticeApplication">It may take Few Days</string>
+    <string name="total">Total</string>
+    <string name="inactive">Inactive</string>
 </resources>
