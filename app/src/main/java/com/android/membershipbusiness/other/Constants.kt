@@ -1,6 +1,7 @@
 package com.android.membershipbusiness.other
 
 object Constants {
+    const val MEMBERSHIP_COUNT="memCount"
     const val UPIID="upiId"
     const val PAN="pan"
     const val ADDHAR="addhar"

@@ -32,6 +32,7 @@
                     android:src="@drawable/user_image" />
 
                 <TextView
+                    android:id="@+id/setting_business_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -76,6 +77,7 @@
                             android:textSize="20sp" />
 
                         <TextView
+                            android:id="@+id/memberShipCount_settings"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="10dp"
@@ -101,6 +103,7 @@
                             android:textSize="20sp" />
 
                         <TextView
+                            android:id="@+id/settings_total_cus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="10dp"
@@ -135,6 +138,7 @@
                     android:src="@drawable/ic_baseline_person_24" />
 
                 <TextView
+                    android:id="@+id/owner_settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -157,13 +161,12 @@
                     android:src="@drawable/ic_enail" />
 
                 <TextView
+                    android:id="@+id/settings_business_email"
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/monmedium"
                     android:paddingLeft="20dp"
-
                     android:text="@string/business_email"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -183,13 +186,12 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
+                    android:id="@+id/settings_contact_number"
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/monmedium"
                     android:paddingStart="20dp"
                     android:paddingLeft="20dp"
-
                     android:text="@string/phone_number"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
@@ -200,7 +202,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal"
-                android:paddingLeft="25dp">
+                android:paddingStart="25dp"
+                android:paddingLeft="25dp"
+                tools:ignore="RtlSymmetry">
 
                 <ImageView
                     android:layout_width="36dp"
@@ -208,14 +212,13 @@
                     android:src="@drawable/address" />
 
                 <TextView
+                    android:id="@+id/settings_address"
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/monmedium"
                     android:paddingStart="20dp"
                     android:paddingLeft="20dp"
-
                     android:text="@string/address"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
@@ -223,14 +226,12 @@
         </LinearLayout>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="40dp"
             android:layout_marginTop="35dp"
-            android:layout_marginEnd="40dp"
-            android:fontFamily="@font/monmedium"
             android:background="@drawable/btn_circular"
+            android:fontFamily="@font/monmedium"
             android:text="@string/edit"
             android:textColor="#fff" />
 

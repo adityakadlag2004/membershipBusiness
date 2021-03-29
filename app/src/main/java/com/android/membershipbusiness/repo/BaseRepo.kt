@@ -22,13 +22,17 @@ abstract class BaseRepo(val context: Context) {
     var myRefBase = databaseBase.getReference(Constants.USERS)
     var userdataBase = MutableLiveData<String>()
     var bdataCheck = MutableLiveData<String>()
-    var username2Base = MutableLiveData<String>()
-    var emailBase = MutableLiveData<String>()
+    var businessName = MutableLiveData<String>()
+    var owner = MutableLiveData<String>()
     var profileImageBase = MutableLiveData<String>()
     var applicationStatus = MutableLiveData<String>()
-    var phone2 = MutableLiveData<String>()
-    var count2 = MutableLiveData<String>()
+    var membershipCount = MutableLiveData<String>()
+    var totalCustomer = MutableLiveData<String>()
+    var businessEmail = MutableLiveData<String>()
     var stage = MutableLiveData<String>()
+    var address = MutableLiveData<String>()
+    var contactNumber = MutableLiveData<String>()
+
     var curUser = mAuthBase.currentUser
 
 
@@ -38,7 +42,6 @@ abstract class BaseRepo(val context: Context) {
             context.startActivity(it)
         }
     }
-
 
 
     fun checkUserHasData(): MutableLiveData<String> {
@@ -68,6 +71,7 @@ abstract class BaseRepo(val context: Context) {
 
         }
     }
+
     fun sendUserToAddUserBusinessData() {
         Intent(context, AddBusinessData::class.java).also {
             Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -83,7 +87,7 @@ abstract class BaseRepo(val context: Context) {
         if (user != null) {
             myRefBase.child(user.uid).addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                  bdataCheck.value=snapshot.child(Constants.DATAADDED).value.toString()
+                    bdataCheck.value = snapshot.child(Constants.DATAADDED).value.toString()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -93,6 +97,7 @@ abstract class BaseRepo(val context: Context) {
         }
         return bdataCheck
     }
+
     fun checkstage(): MutableLiveData<String> {
 
         val user = mAuthBase.currentUser
@@ -100,7 +105,7 @@ abstract class BaseRepo(val context: Context) {
         if (user != null) {
             myRefBase.child(user.uid).addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    stage.value=snapshot.child(Constants.STAGE).value.toString()
+                    stage.value = snapshot.child(Constants.STAGE).value.toString()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -111,17 +116,16 @@ abstract class BaseRepo(val context: Context) {
         return stage
     }
 
-    fun getUsername(): MutableLiveData<String> {
+
+    fun getOwnerBase(): MutableLiveData<String> {
         val user = mAuthBase.currentUser
-        if (user != null && username2Base.value.isNullOrEmpty()) {
+        if (user != null && totalCustomer.value.isNullOrEmpty()) {
             myRefBase.child(mAuthBase.currentUser!!.uid)
                 .addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
-                            username2Base.value =
-                                snapshot.child(Constants.USER_NAME).value.toString()
-
-                            Log.d(ContentValues.TAG, "onDataChange: Repo$username2Base")
+                            owner.value =
+                                snapshot.child(Constants.BUSINESS_OWNER).value.toString()
                         }
 
                     }
@@ -132,44 +136,20 @@ abstract class BaseRepo(val context: Context) {
                 })
         }
 
-        Log.d(ContentValues.TAG, "onDataChange: Last Repo$username2Base ")
-        return username2Base
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$owner ")
+        return owner
     }
 
-
-    fun getEmail(): MutableLiveData<String> {
+    fun getBusinessLogo(): MutableLiveData<String> {
         val user = mAuthBase.currentUser
-        if (user != null && username2Base.value.isNullOrEmpty()) {
-            myRefBase.child(mAuthBase.currentUser!!.uid)
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        if (snapshot.exists()) {
-                            emailBase.value =
-                                snapshot.child(Constants.USER_EMAIL).value.toString()
-                        }
-
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-                        Log.d(ContentValues.TAG, "onCancelled: Fail")
-                    }
-                })
-        }
-
-        Log.d(ContentValues.TAG, "onDataChange: Last Repo$emailBase ")
-        return emailBase
-    }
-
-    fun getImage(): MutableLiveData<String> {
-        val user = mAuthBase.currentUser
-        if (user != null && username2Base.value.isNullOrEmpty()) {
+        if (user != null && businessName.value.isNullOrEmpty()) {
             myRefBase.child(mAuthBase.currentUser!!.uid)
                 .addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             profileImageBase.value =
-                                snapshot.child(Constants.USER_PROFILE_IMAGE).value.toString()
-                            Log.d(ContentValues.TAG, "onDataChange: Repo$username2Base")
+                                snapshot.child(Constants.BUSiNESS_LOGO).value.toString()
+                            Log.d(ContentValues.TAG, "onDataChange: Repo$businessName")
                         }
                     }
 
@@ -179,11 +159,153 @@ abstract class BaseRepo(val context: Context) {
                 })
         }
 
-        Log.d(ContentValues.TAG, "onDataChange: Last Repo$username2Base ")
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$businessName ")
         return profileImageBase
     }
 
     fun checkApplicationStatus(): LiveData<String> {
         return applicationStatus
+    }
+
+    @JvmName("getBusinessName1")
+    fun getBusinessName(): MutableLiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user != null && businessName.value.isNullOrEmpty()) {
+            myRefBase.child(mAuthBase.currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            businessName.value =
+                                snapshot.child(Constants.BUSINESS_NAME).value.toString()
+
+                            Log.d(ContentValues.TAG, "onDataChange: Repo$businessName")
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(ContentValues.TAG, "onCancelled: Fail")
+                    }
+                })
+        }
+
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$businessName ")
+        return businessName
+    }
+
+    fun getMemberShipCount(): MutableLiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user != null && membershipCount.value.isNullOrEmpty()) {
+            myRefBase.child(mAuthBase.currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            membershipCount.value =
+                                snapshot.child(Constants.MEMBERSHIP_COUNT).value.toString()
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(ContentValues.TAG, "onCancelled: Fail")
+                    }
+                })
+        }
+
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$membershipCount ")
+        return membershipCount
+
+    }
+
+    fun getTotalCustomers(): MutableLiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user != null && totalCustomer.value.isNullOrEmpty()) {
+            myRefBase.child(mAuthBase.currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            totalCustomer.value =
+                                snapshot.child(Constants.BUSINESS_CUSTOMERS_COUNT).value.toString()
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(ContentValues.TAG, "onCancelled: Fail")
+                    }
+                })
+        }
+
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$totalCustomer ")
+        return totalCustomer
+    }
+
+    fun getBusinessEmailBase(): MutableLiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user != null && totalCustomer.value.isNullOrEmpty()) {
+            myRefBase.child(mAuthBase.currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            businessEmail.value =
+                                snapshot.child(Constants.BUSINESS_EMAIL).value.toString()
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(ContentValues.TAG, "onCancelled: Fail")
+                    }
+                })
+        }
+
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$businessEmail ")
+        return businessEmail
+    }
+
+    fun getContactBase(): MutableLiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user != null && totalCustomer.value.isNullOrEmpty()) {
+            myRefBase.child(mAuthBase.currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            contactNumber.value =
+                                snapshot.child(Constants.USER_PHONENUMBER).value.toString()
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(ContentValues.TAG, "onCancelled: Fail")
+                    }
+                })
+        }
+
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$contactNumber ")
+        return contactNumber
+    }
+
+    fun getAddressBase(): MutableLiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user != null && totalCustomer.value.isNullOrEmpty()) {
+            myRefBase.child(mAuthBase.currentUser!!.uid)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            address.value =
+                                snapshot.child(Constants.BUSINESS_ADDRESS).value.toString()
+                        }
+
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.d(ContentValues.TAG, "onCancelled: Fail")
+                    }
+                })
+        }
+
+        Log.d(ContentValues.TAG, "onDataChange: Last Repo$address ")
+        return address
     }
 }

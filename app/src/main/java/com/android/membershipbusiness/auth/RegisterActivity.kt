@@ -23,7 +23,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthViewModel
@@ -119,6 +122,29 @@ class RegisterActivity : AppCompatActivity() {
                     val user = mAuth.currentUser
                     if (user != null) {
                         myRef.child(user.uid).child(Constants.USER_EMAIL).setValue(user.email)
+                        myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
+                            .addValueEventListener(
+                                object : ValueEventListener {
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        if (snapshot.exists()) {
+                                            if (snapshot.value != null) {
+                                                Log.d(TAG, "onDataChange: has data")
+                                            }
+                                        }
+                                        else{
+                                            myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
+                                                .setValue("0")
+                                        }
+                                    }
+
+                                    override fun onCancelled(error: DatabaseError) {
+                                        Log.d(TAG, "onCancelled: cancel")
+                                    }
+
+                                })
+
+
+
                         myRef.child(user.uid).child(Constants.USER_NAME).setValue(
                             user.displayName ?: " "
                         )

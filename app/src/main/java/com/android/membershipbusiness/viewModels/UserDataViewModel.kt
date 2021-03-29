@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.membershipbusiness.repo.UserRepo
 import kotlinx.coroutines.CoroutineScope
@@ -62,6 +63,38 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
     fun uploadBusinessImages(imageList: ArrayList<Uri>) {
         repository.uploadBusinessImages(imageList)
+    }
+
+    fun getBusinessLogo() :MutableLiveData<String> {
+       return repository.getBusinessLogo()
+    }
+
+    fun getBusinessName() :MutableLiveData<String>{
+        return repository.getBusinessName()
+    }
+
+    fun getMemberShipCount() :MutableLiveData<String> {
+        return repository.getMemberShipCount()
+    }
+
+    fun getTotalCustomers(): MutableLiveData<String> {
+      return repository.getTotalCustomers()
+    }
+
+    fun getOwner(): MutableLiveData<String> {
+        return repository.getOwnerBase()
+    }
+
+    fun getBusinessEmail(): MutableLiveData<String> {
+        return repository.getBusinessEmailBase()
+    }
+
+    fun getContactNumber(): MutableLiveData<String> {
+        return repository.getContactBase()
+    }
+
+    fun getAddress(): MutableLiveData<String> {
+        return repository.getAddressBase()
     }
 
 }
