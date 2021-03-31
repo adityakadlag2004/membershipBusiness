@@ -133,7 +133,7 @@ class RegisterActivity : AppCompatActivity() {
                                         }
                                         else{
                                             myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
-                                                .setValue("0")
+                                                .setValue(0)
                                         }
                                     }
 

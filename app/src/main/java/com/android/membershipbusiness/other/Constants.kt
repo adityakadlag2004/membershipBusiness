@@ -1,6 +1,7 @@
 package com.android.membershipbusiness.other
 
 object Constants {
+    const val MEMBERSHIPS="memberships"
     const val MEMBERSHIP_COUNT="memCount"
     const val UPIID="upiId"
     const val PAN="pan"
@@ -41,4 +42,14 @@ object Constants {
     const val BUSINESS_ENDTIME="b_endTime"
     const val BUSINESS_STARTDAY="b_startDay"
     const val BUSINESS_ENDDAY="b_endday"
+
+
+
+    const val MEM_TITLE="title_mem"
+    const val MEM_CATEGORY="mem_category"
+    const val MEM_DESC="mem_desc"
+    const val MEM_CAPACITY="mem_capacity"
+    const val MEM_stTime="startTime"
+    const val MEM_edTime="endTime"
+    const val MEM_fees="fees"
 }

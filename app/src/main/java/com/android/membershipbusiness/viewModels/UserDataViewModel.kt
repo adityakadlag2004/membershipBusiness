@@ -25,16 +25,14 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
         repository.sendUserToMainActivity()
     }
 
-    fun checkStage():LiveData<String>
-    {
-       return repository.checkstage()
+    fun checkStage(): LiveData<String> {
+        return repository.checkstage()
     }
 
 //    fun updateUser(username:String?=null,contactnumber:String?=null)
 //    {
 //        repository.updateUser(username,contactnumber)
 //    }
-
 
 
     fun checkUserBusinessData(): LiveData<String> {
@@ -50,13 +48,11 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
         repository.uploadToFirebaseBusiness(imageUri)
     }
 
-    fun uploadPanCard(imageUri: Uri)
-    {
+    fun uploadPanCard(imageUri: Uri) {
         repository.uploadPan(imageUri)
     }
 
-    fun uploadAddharCard(imageUri: Uri)
-    {
+    fun uploadAddharCard(imageUri: Uri) {
         repository.uploadAddhar(imageUri)
     }
 
@@ -65,20 +61,20 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
         repository.uploadBusinessImages(imageList)
     }
 
-    fun getBusinessLogo() :MutableLiveData<String> {
-       return repository.getBusinessLogo()
+    fun getBusinessLogo(): MutableLiveData<String> {
+        return repository.getBusinessLogo()
     }
 
-    fun getBusinessName() :MutableLiveData<String>{
+    fun getBusinessName(): MutableLiveData<String> {
         return repository.getBusinessName()
     }
 
-    fun getMemberShipCount() :MutableLiveData<String> {
+    fun getMemberShipCount(): MutableLiveData<String> {
         return repository.getMemberShipCount()
     }
 
     fun getTotalCustomers(): MutableLiveData<String> {
-      return repository.getTotalCustomers()
+        return repository.getTotalCustomers()
     }
 
     fun getOwner(): MutableLiveData<String> {
@@ -95,6 +91,20 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
     fun getAddress(): MutableLiveData<String> {
         return repository.getAddressBase()
+    }
+
+    fun addMembership(
+        title: String,
+        category: String? = null,
+        desc: String,
+        capacity: String,
+        stTime: String,
+        edTime: String,
+        fees: String
+    ) {
+
+        repository.addMemberShip(title,category,desc,capacity,stTime,edTime,fees)
+
     }
 
 }
