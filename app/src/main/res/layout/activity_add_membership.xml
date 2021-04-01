@@ -48,6 +48,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="40dp"
+            android:drawablePadding="12dp"
+            android:hint="@string/membership_duration_in_days"
+            app:boxBackgroundMode="outline"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/membership_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monmedium"
+                android:inputType="number">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:drawablePadding="12dp"
@@ -124,47 +146,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
-                android:drawablePadding="12dp"
-                android:hint="@string/start_time">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/startTime_mem"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/start_time"
+                    android:id="@+id/starttime_mem"
+                    android:textSize="18sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/monmedium"
-                    android:inputType="time">
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="40dp" />
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
-                android:drawablePadding="12dp"
-                android:hint="@string/end_time">
-
-                <com.google.android.material.textfield.TextInputEditText
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_time"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
                     android:id="@+id/endtime_mem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_alignParentEnd="true"
                     android:fontFamily="@font/monmedium"
-                    android:inputType="time">
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="40dp" />
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+
         </RelativeLayout>
 
 
@@ -205,8 +218,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            />
+            android:layout_height="60dp" />
 
     </LinearLayout>
 

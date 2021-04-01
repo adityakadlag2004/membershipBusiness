@@ -100,10 +100,11 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
         capacity: String,
         stTime: String,
         edTime: String,
-        fees: String
+        fees: String,
+        duration:String
     ) {
 
-        repository.addMemberShip(title,category,desc,capacity,stTime,edTime,fees)
+        repository.addMemberShip(title,category,desc,capacity,stTime,edTime,fees,duration)
 
     }
 

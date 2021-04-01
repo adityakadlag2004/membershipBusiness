@@ -85,4 +85,5 @@ or any Special Offers</string>
     <string name="membership_fees">Membership Fees</string>
     <string name="membership_category">Membership Category(Optional)</string>
     <string name="person_capacity">Person capacity</string>
+    <string name="membership_duration_in_days">Membership Duration In Days</string>
 </resources>

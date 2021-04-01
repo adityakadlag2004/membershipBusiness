@@ -145,7 +145,8 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
         capacity: String,
         stTime: String,
         edTime: String,
-        fees: String
+        fees: String,
+        duration:String
     ) {
 
         val user = mAuth.currentUser
@@ -158,6 +159,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
         hash["stTime"] = stTime
         hash["edTime"] = edTime
         hash["fees"] = fees
+        hash["duration"]=duration
 
         if (user != null) {
             myRef.child(user.uid).child(Constants.MEMBERSHIPS).push().setValue(hash)
