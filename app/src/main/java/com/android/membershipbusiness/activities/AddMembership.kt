@@ -1,17 +1,14 @@
 package com.android.membershipbusiness.activities
 
-import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TimePicker
-import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.di.DaggerFactoryComponent
-import com.android.membershipbusiness.repo.MainRepository
 import com.android.membershipbusiness.repo.UserRepo
-import com.android.membershipbusiness.viewModels.MainViewModel
+import com.android.membershipbusiness.toast
 import com.android.membershipbusiness.viewModels.UserDataViewModel
 import com.android.mvvmdatabind2.di.modules.FactoryModule
 import com.android.mvvmdatabind2.di.modules.RepositoryModule
@@ -26,8 +23,6 @@ class AddMembership : AppCompatActivity() {
     private lateinit var viewModel: UserDataViewModel
     private lateinit var component: DaggerFactoryComponent
     private var currentuser: FirebaseUser? = null
-    var hour = 0
-    var minute = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_membership)
@@ -113,25 +108,24 @@ class AddMembership : AppCompatActivity() {
                                         duration
                                     )
                                 } else {
-                                    Toast.makeText(this, "Duration Missing", Toast.LENGTH_SHORT)
-                                        .show()
+                                    toast("Duration Missing")
                                 }
 
                             } else {
-                                Toast.makeText(this, "Enter the Fees", Toast.LENGTH_SHORT).show()
+                                toast("Enter the Fees")
                             }
                         } else {
-                            Toast.makeText(this, "Fill The Timing", Toast.LENGTH_SHORT).show()
+                            toast("Fill The Timing")
                         }
 
                     } else {
-                        Toast.makeText(this, "Fill Person Capacity", Toast.LENGTH_SHORT).show()
+                        toast("Fill Person Capacity")
                     }
                 } else {
-                    Toast.makeText(this, "Fill The Description", Toast.LENGTH_SHORT).show()
+                    toast("Fill The Description")
                 }
             } else {
-                Toast.makeText(this, "Fill The Title", Toast.LENGTH_SHORT).show()
+                toast("Title Missing")
             }
 
         }

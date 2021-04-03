@@ -18,21 +18,24 @@ import com.android.membershipbusiness.repo.UserRepo
 import com.android.membershipbusiness.viewModels.UserDataViewModel
 import com.android.mvvmdatabind2.di.modules.FactoryModule
 import com.android.mvvmdatabind2.di.modules.RepositoryModule
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_add_membership.*
 import kotlinx.android.synthetic.main.fragment_businessinfo2.view.*
 
 
 class Businessinfo2 : Fragment() {
     var mAuth = FirebaseAuth.getInstance()
     var imageUri: Uri? = null
-    lateinit var manager:FragmentManager
+    lateinit var manager: FragmentManager
     var currentuser: FirebaseUser? = null
     lateinit var viewModel: UserDataViewModel
     val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference(Constants.USERS)
-    lateinit var daysAdapter: ArrayAdapter<String>
+//    lateinit var daysAdapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +59,63 @@ class Businessinfo2 : Fragment() {
         viewModel =
             ViewModelProviders.of(this, component.getFactory()).get(UserDataViewModel::class.java)
 
+        view.starttime.setOnClickListener {
+            var time = ""
+            val picker =
+                MaterialTimePicker.Builder()
+                    .setTimeFormat(TimeFormat.CLOCK_12H)
+                    .setHour(12)
+                    .setTitleText("Select Starting Time")
+                    .setMinute(10)
+                    .build()
 
+            var ampm = "AM"
+            val manager = activity!!.supportFragmentManager
+
+            picker.show(manager, "tag")
+
+            picker.addOnPositiveButtonClickListener {
+
+                if (picker.hour > 12) {
+                    val h = picker.hour - 12
+                    time = h.toString() + ":" + picker.minute.toString() + "PM"
+
+                } else {
+                    time = picker.hour.toString() + ":" + picker.minute.toString() + "AM"
+                }
+
+
+                view.starttime.text = time
+            }
+
+        }
+        view.endtime.setOnClickListener {
+            var time = "AM"
+            val picker =
+                MaterialTimePicker.Builder()
+                    .setTimeFormat(TimeFormat.CLOCK_12H)
+                    .setHour(12)
+                    .setTitleText("Select Starting Time")
+                    .setMinute(10)
+                    .build()
+
+            picker.addOnPositiveButtonClickListener {
+                if (picker.hour > 12) {
+                    val h = picker.hour - 12
+                    time = h.toString() + ":" + picker.minute.toString() + "PM"
+
+                } else {
+                    time = picker.hour.toString() + ":" + picker.minute.toString() + "AM"
+                }
+                view.endtime.text = time
+            }
+            val manager = activity!!.supportFragmentManager
+            picker.show(manager, "tag")
+        }
         view.btn_continue_business2.setOnClickListener {
             val contact = view.add_Business_contact.text.toString()
             val email = view.add_Business_email_business2.text.toString()
-            val startTime = view.startTime.text.toString()
+            val startTime = view.starttime.text.toString()
             val endTime = view.endtime.text.toString()
             val startDay = view.startDay.text.toString()
             val endDay = view.endDay.text.toString()
@@ -87,7 +142,7 @@ class Businessinfo2 : Fragment() {
                         .show()
                 }
             } else {
-                Toast.makeText(view.context, "Fill the Fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, "", Toast.LENGTH_SHORT).show()
             }
         }
         val days = arrayOf(

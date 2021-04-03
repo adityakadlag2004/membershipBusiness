@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monmedium"
+                android:maxLength="10"
                 android:inputType="phone"
                 android:id="@+id/add_Business_contact"
                 >
@@ -85,54 +86,45 @@
             android:layout_marginLeft="20dp" />
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/add_Business_startTime"
-            >
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:drawablePadding="12dp"
-                android:hint="@string/start_time"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="40dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginEnd="40dp"
-                >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="time"
-                    android:fontFamily="@font/monmedium"
-                    android:id="@+id/startTime"
-                    >
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="150dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="12dp"
-                android:hint="@string/end_time"
+                android:text="@string/start_time"
+                android:id="@+id/starttime"
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="40dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/monmedium"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/end_time"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:id="@+id/endtime"
+                android:textSize="18sp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true">
+                android:fontFamily="@font/monmedium"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="time"
-                    android:fontFamily="@font/monmedium"
-                    android:id="@+id/endtime"
-                    >
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
+
+
 
 
         <TextView
