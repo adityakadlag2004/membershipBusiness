@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MembershipBusiness"
         tools:ignore="AllowBackup">
-        <activity android:name=".activities.AddMembership"></activity>
+        <activity android:name=".auth.ForgotPasswordActivity"></activity>
+        <activity android:name=".activities.AddMembership" />
         <activity
             android:name=".activities.data.AddBusinessData"
             android:screenOrientation="portrait" />

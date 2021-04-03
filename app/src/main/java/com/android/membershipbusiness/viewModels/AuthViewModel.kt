@@ -23,7 +23,7 @@ class AuthViewModel(val repository: AuthRepository) :ViewModel() {
         repository.register(email.value.toString(), password.value.toString())
     }
 
-    fun forgotPassword(email: String) {
-        repository.forgotPassword(email)
+    fun forgotPassword() {
+        repository.sendUserToForgotPassWordActivity()
     }
 }
