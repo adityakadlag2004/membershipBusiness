@@ -223,6 +223,36 @@
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingStart="25dp"
+                android:paddingLeft="25dp"
+                tools:ignore="RtlSymmetry">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_logout_24" />
+
+                <TextView
+                    android:id="@+id/settings_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/monmedium"
+                    android:paddingStart="20dp"
+                    android:paddingLeft="20dp"
+                    android:text="@string/logout"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <Button

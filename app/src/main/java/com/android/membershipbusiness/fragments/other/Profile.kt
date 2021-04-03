@@ -1,6 +1,5 @@
 package com.android.membershipbusiness.fragments.other
 
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,8 +26,8 @@ class Settings : Fragment() {
     private lateinit var viewModel: UserDataViewModel
     private lateinit var component: DaggerFactoryComponent
     private var currentuser: FirebaseUser? = null
-    lateinit var panUri: Uri
-    lateinit var addharUri: Uri
+//    lateinit var panUri: Uri
+//    lateinit var addharUri: Uri
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.getReference(Constants.USERS)
 
@@ -59,6 +58,11 @@ class Settings : Fragment() {
             }
         })
 
+        view.settings_logout.setOnClickListener {
+            mAuth.signOut()
+            viewModel.sendUserToLoginActivity()
+            activity!!.finish()
+        }
         viewModel.getBusinessName().observe(viewLifecycleOwner, {
             view.setting_business_name.text = it.toString()
         })

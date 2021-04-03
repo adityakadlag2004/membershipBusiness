@@ -108,4 +108,9 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
     }
 
+    fun sendUserToLoginActivity() {
+        repository.sendUserToLoginActivity()
+
+    }
+
 }

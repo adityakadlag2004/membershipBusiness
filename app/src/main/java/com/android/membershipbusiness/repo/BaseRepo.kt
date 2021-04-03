@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import com.android.membershipbusiness.activities.MainActivity
 import com.android.membershipbusiness.activities.data.AddBusinessData
 import com.android.membershipbusiness.activities.data.AddOwnerData
+import com.android.membershipbusiness.auth.LoginActivity
 import com.android.membershipbusiness.other.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -307,5 +308,12 @@ abstract class BaseRepo(val context: Context) {
 
         Log.d(ContentValues.TAG, "onDataChange: Last Repo$address ")
         return address
+    }
+
+    fun sendUserToLoginActivity() {
+        Intent(context, LoginActivity::class.java).also {
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            context.startActivity(it)
+        }
     }
 }
