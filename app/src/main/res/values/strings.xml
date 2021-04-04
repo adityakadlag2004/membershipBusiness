@@ -87,4 +87,5 @@ or any Special Offers</string>
     <string name="person_capacity">Person capacity</string>
     <string name="membership_duration_in_days">Membership Duration In Days</string>
     <string name="forgot_password">Forgot Password</string>
+    <string name="reset_link">Check Your Email, We have sent you a Reset Link</string>
 </resources>

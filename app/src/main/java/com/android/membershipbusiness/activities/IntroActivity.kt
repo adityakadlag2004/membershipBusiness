@@ -53,7 +53,9 @@ class IntroActivity : AppCompatActivity() {
         currentuser = mAuth.currentUser
 
         if (currentuser != null) {
+            if (currentuser!!.isEmailVerified)
             sendUserToMainActivity()
+
         }
 
     }
