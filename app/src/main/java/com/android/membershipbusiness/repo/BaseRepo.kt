@@ -33,6 +33,7 @@ abstract class BaseRepo(val context: Context) {
     var businessEmail = MutableLiveData<String>()
     var stage = MutableLiveData<String>()
     var address = MutableLiveData<String>()
+    var userverified = MutableLiveData<String>()
     var contactNumber = MutableLiveData<String>()
 
     var curUser = mAuthBase.currentUser
@@ -318,9 +319,26 @@ abstract class BaseRepo(val context: Context) {
         }
     }
 
-    fun sendUserToForgotPassWordActivity() {
+    fun sendUserToForgotPassWordActivity(i:Int?=null) {
         Intent(context, ForgotPasswordActivity::class.java).also {
+            it.putExtra("email",i?:0)
             context.startActivity(it)
         }
+    }
+
+    fun isUserEmailVerified(): LiveData<String> {
+        val user = mAuthBase.currentUser
+        if (user!=null)
+        {
+          if (user.isEmailVerified)
+          {
+             userverified.value="yes"
+          }
+          else
+          {
+           userverified.value="no"
+          }
+        }
+        return userverified
     }
 }

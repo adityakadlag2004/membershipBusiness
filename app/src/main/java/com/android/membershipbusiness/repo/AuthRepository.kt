@@ -42,7 +42,7 @@ class AuthRepository(context: Context) : BaseRepo(context) {
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
-                                mAuth.currentUser!!.sendEmailVerification()
+                                sendUserToMainActivity()
                             }
                         } else {
                             Log.d(ContentValues.TAG, "login: Login Failed :- ${task.exception}")
@@ -51,7 +51,6 @@ class AuthRepository(context: Context) : BaseRepo(context) {
             } else {
                 Toast.makeText(context, "Enter a valid Email Address", Toast.LENGTH_SHORT).show()
             }
-
         } else {
             Toast.makeText(context, "Fill The Fields", Toast.LENGTH_SHORT).show()
         }

@@ -8,7 +8,7 @@
         android:title="@string/customers"
         android:icon="@drawable/ic_customers" />
 
-    <item android:id="@+id/miSettings"
+    <item android:id="@+id/miProfile"
         android:title="@string/profile"
         android:icon="@drawable/ac_circle_24" />
 </menu>

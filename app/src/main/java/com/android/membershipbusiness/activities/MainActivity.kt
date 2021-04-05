@@ -3,7 +3,6 @@ package com.android.membershipbusiness.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -13,7 +12,6 @@ import com.android.membershipbusiness.fragments.other.Customer
 import com.android.membershipbusiness.fragments.other.Home
 import com.android.membershipbusiness.fragments.other.Settings
 import com.android.membershipbusiness.repo.MainRepository
-import com.android.membershipbusiness.toast
 import com.android.membershipbusiness.viewModels.MainViewModel
 import com.android.mvvmdatabind2.di.modules.FactoryModule
 import com.android.mvvmdatabind2.di.modules.RepositoryModule
@@ -28,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private var currentuser: FirebaseUser? = null
     private val homeFragment = Home()
     private val customerFrag = Customer()
-    private val settingsFrag = Settings()
+    private val profileFrag = Settings()
     private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +34,26 @@ class MainActivity : AppCompatActivity() {
 
         init()
 
-        viewModel.checkUserHasData().observe(this, {
-            if (it == "no") {
-                viewModel.sendUsertoAddOwnerDataActivity()
-                finish()
-            }
+        viewModel.isUserVerified().observe(this, {
+            if (it=="no")
+            {
 
+                viewModel.sendUserToVerifyActivity(1)
+            }
+            else{
+                viewModel.checkUserHasData().observe(this, {
+                    if (it == "no") {
+                        viewModel.sendUsertoAddOwnerDataActivity()
+                        finish()
+                    }
+
+                })
+            }
         })
+
+
+
+
 
 
 
@@ -62,8 +73,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-                R.id.miSettings -> {
-                    setCurrentFragment(settingsFrag)
+                R.id.miProfile -> {
+                    setCurrentFragment(profileFrag)
                     toolBar_main.visibility= View.GONE
 
                 }

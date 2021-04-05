@@ -26,4 +26,12 @@ class MainViewModel(val repository: MainRepository) :ViewModel(){
         return  repository.checkApplicationStatus()
     }
 
+    fun isUserVerified(): LiveData<String> {
+        return repository.isUserEmailVerified()
+    }
+
+    fun sendUserToVerifyActivity(i: Int?=null) {
+        repository.sendUserToForgotPassWordActivity(i)
+    }
+
 }
