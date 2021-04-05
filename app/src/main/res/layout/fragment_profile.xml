@@ -47,6 +47,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="400dp"
                 android:layout_height="120dp"
+                android:background="@color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="275dp"
                 app:cardCornerRadius="10dp"
@@ -119,141 +120,183 @@
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="360dp"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="45dp"
-            android:orientation="vertical">
+            android:layout_margin="15dp"
+            app:cardElevation="3dp"
+            app:cardCornerRadius="10dp"
+            tools:targetApi="lollipop">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_baseline_person_24" />
-
-                <TextView
-                    android:id="@+id/owner_settings"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/monmedium"
-                    android:paddingLeft="20dp"
-                    android:text="@string/owner"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_enail" />
-
-                <TextView
-                    android:id="@+id/settings_business_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/monmedium"
-                    android:paddingLeft="20dp"
-                    android:text="@string/business_email"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingStart="25dp"
-                android:paddingLeft="25dp">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_baseline_phone_android_24" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/settings_contact_number"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/monmedium"
-                    android:paddingStart="20dp"
-                    android:paddingLeft="20dp"
-                    android:text="@string/phone_number"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingStart="25dp"
-                android:paddingLeft="25dp"
-                tools:ignore="RtlSymmetry">
-
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/address" />
-
-                <TextView
-                    android:id="@+id/settings_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/monmedium"
-                    android:paddingStart="20dp"
-                    android:paddingLeft="20dp"
-                    android:text="@string/address"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingStart="25dp"
-                android:paddingLeft="25dp"
-                tools:ignore="RtlSymmetry">
 
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_logout_24" />
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/usernameFrag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:fontFamily="@font/monregular"
+                            android:layout_marginTop="10dp"
+                            android:drawableStart="@drawable/ic_baseline_person_24"
+                            android:drawableLeft="@drawable/ic_enail"
+                            android:drawablePadding="10dp"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="@string/username"
+                            android:textAlignment="center"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
+                    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/settings_logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/monmedium"
-                    android:paddingStart="20dp"
-                    android:paddingLeft="20dp"
-                    android:text="@string/logout"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+
+                        android:orientation="vertical">
+
+                        <!--                    <com.google.android.material.textview.MaterialTextView-->
+                        <!--                        android:layout_width="wrap_content"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:layout_marginStart="20sp"-->
+                        <!--                        android:layout_marginLeft="20sp"-->
+                        <!--                        android:layout_marginTop="20dp"-->
+                        <!--                        android:gravity="center_horizontal"-->
+                        <!--                        android:text="@string/email"-->
+                        <!--                        android:textAlignment="center"-->
+                        <!--                        android:textColor="@color/black"-->
+                        <!--                        android:textSize="18sp" />-->
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/emailFrag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:fontFamily="@font/monregular"
+
+                            android:layout_marginTop="10dp"
+                            android:drawableStart="@drawable/ic_enail"
+                            android:drawableLeft="@drawable/ic_enail"
+                            android:drawablePadding="10dp"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="@string/email"
+                            android:textAlignment="center"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+
+                        android:orientation="vertical">
+
+                        <!--                    <com.google.android.material.textview.MaterialTextView-->
+                        <!--                        android:layout_width="wrap_content"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:layout_marginStart="20sp"-->
+                        <!--                        android:layout_marginLeft="20sp"-->
+                        <!--                        android:layout_marginTop="20dp"-->
+                        <!--                        android:gravity="center_horizontal"-->
+                        <!--                        android:text="@string/contact_number"-->
+                        <!--                        android:textAlignment="center"-->
+                        <!--                        android:textColor="@color/black"-->
+                        <!--                        android:textSize="18sp" />-->
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/phoneFrag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="10dp"                            android:fontFamily="@font/monregular"
+                            app:fontFamily="@font/monregular"
+                            android:drawableStart="@drawable/ic_baseline_phone_android_24"
+                            android:drawableLeft="@drawable/ic_baseline_phone_android_24"
+                            android:drawablePadding="10dp"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="@string/phone_number"
+
+                            android:textAlignment="center"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
 
 
-        </LinearLayout>
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/memCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="10dp"
+                            app:fontFamily="@font/monregular"
+
+                            android:drawableStart="@drawable/ic_history"
+                            android:drawableLeft="@drawable/ic_history"
+                            android:drawablePadding="10dp"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="@string/_10"
+                            android:textAlignment="center"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/logoutText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="10dp"
+                            android:drawableStart="@drawable/ic_logout_24"
+                            android:drawableLeft="@drawable/ic_logout_24"
+                            android:drawablePadding="10dp"
+                            app:fontFamily="@font/monregular"
+                            android:gravity="center_horizontal"
+                            android:padding="10dp"
+                            android:text="@string/logout"
+                            android:textAlignment="center"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+
 
         <Button
             android:layout_width="120dp"
@@ -264,6 +307,11 @@
             android:fontFamily="@font/monmedium"
             android:text="@string/edit"
             android:textColor="#fff" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
 
     </LinearLayout>
 

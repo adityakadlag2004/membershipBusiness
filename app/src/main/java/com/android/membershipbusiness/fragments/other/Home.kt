@@ -80,6 +80,13 @@ class Home : Fragment() {
                 viewModel.sendtoAddBusinessDataActivity()
             }
         }
+
+
+        view.add_Business_btn.setOnClickListener {
+            if (state != "inreview") {
+                viewModel.sendtoAddBusinessDataActivity()
+            }
+        }
         return view
     }
 

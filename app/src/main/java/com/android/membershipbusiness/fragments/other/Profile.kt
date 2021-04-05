@@ -56,18 +56,26 @@ class Settings : Fragment() {
                     .error(R.drawable.user_image)
                     .into(view.settings_business_logo)
             }
+
         })
 
-        view.settings_logout.setOnClickListener {
+        view.logoutText.setOnClickListener {
             mAuth.signOut()
             viewModel.sendUserToLoginActivity()
             activity!!.finish()
         }
         viewModel.getBusinessName().observe(viewLifecycleOwner, {
-            view.setting_business_name.text = it.toString()
+            if (it!="null")
+            {
+                view.setting_business_name.text = it.toString()
+            }
         })
 
         viewModel.getMemberShipCount().observe(viewLifecycleOwner, {
+            if (it==null)
+            {
+                view.memberShipCount_settings.text = "0"
+            }
             view.memberShipCount_settings.text = it.toString()
         })
 
@@ -76,21 +84,25 @@ class Settings : Fragment() {
         })
 
         viewModel.getOwner().observe(viewLifecycleOwner, {
-            view.owner_settings.text = it.toString()
+            if (it!="null")
+            view.usernameFrag.text = it.toString()
         })
 
 
         viewModel.getBusinessEmail().observe(viewLifecycleOwner, {
-            view.settings_business_email.text = it.toString()
+            if (it!="null")
+            view.emailFrag.text = it.toString()
         })
 
 
         viewModel.getContactNumber().observe(viewLifecycleOwner, {
-            view.settings_contact_number.text = it.toString()
+            if (it!="null")
+            view.phoneFrag.text = it.toString()
         })
 
         viewModel.getAddress().observe(viewLifecycleOwner, {
-            view.settings_address.text = it.toString()
+            if (it!="null")
+            view.memCount.text = it.toString()
         })
 
 
