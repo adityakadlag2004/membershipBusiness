@@ -66,6 +66,7 @@ class Home : Fragment() {
                 view.main_notice1.text = view.resources.getString(R.string.applicationNotice)
                 view.add_Business_notice.text =
                     view.resources.getString(R.string.subNoticeApplication)
+                view.add_Business_btn.visibility=View.GONE
                 view.add_memberships.visibility = View.VISIBLE
 
             } else {
