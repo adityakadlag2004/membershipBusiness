@@ -35,7 +35,6 @@
                 android:id="@+id/email_edit_Reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
                 android:text="@={viewmodel.email}"
 
                 />
@@ -60,7 +59,6 @@
                 android:id="@+id/password_edit_Reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
                 android:text="@={viewmodel.password}"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>

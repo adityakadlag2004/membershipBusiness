@@ -6,6 +6,7 @@ import android.content.Context
 import android.net.Uri
 import android.util.Log
 import com.android.membershipbusiness.other.Constants
+import com.android.membershipbusiness.other.Membership
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -139,30 +140,23 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
     }
 
     fun addMemberShip(
-        title: String,
-        category: String? = null,
-        desc: String,
-        capacity: String,
-        stTime: String,
-        edTime: String,
-        fees: String,
-        duration:String
+        membership: Membership
     ) {
 
         val user = mAuth.currentUser
 
-        var hash = HashMap<String, String>()
-        hash["title"] = title
-        hash["category"] = category ?: ""
-        hash["desc"] = desc
-        hash["capacity"] = capacity
-        hash["stTime"] = stTime
-        hash["edTime"] = edTime
-        hash["fees"] = fees
-        hash["duration"]=duration
+//        var hash = HashMap<String, String>()
+//        hash["title"] = title
+//        hash["category"] = category ?: ""
+//        hash["desc"] = desc
+//        hash["capacity"] = capacity
+//        hash["stTime"] = stTime
+//        hash["edTime"] = edTime
+//        hash["fees"] = fees
+//        hash["duration"]=duration
 
         if (user != null) {
-            myRef.child(user.uid).child(Constants.MEMBERSHIPS).push().setValue(hash)
+            myRef.child(user.uid).child(Constants.MEMBERSHIPS).push().setValue(membership)
 
             myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
                 .addValueEventListener(

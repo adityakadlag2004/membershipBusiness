@@ -87,6 +87,7 @@ class BusinessInfo4 : Fragment() {
                         myRef.child(currentuser!!.uid).child(Constants.DATAADDED)
                             .setValue("inreview").addOnCompleteListener {
                                 viewModel.sendUserToMainActivity()
+                                activity!!.finish()
                             }
                     } else {
                         view.progress_bar_pan.visibility = View.GONE

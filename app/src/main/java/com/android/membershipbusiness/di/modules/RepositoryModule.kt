@@ -21,9 +21,6 @@ class RepositoryModule constructor(var context: Context) {
         return MainRepository(context)
     }
 
-//    @Provides
-//    fun provideDataRepository(): BaseRepository {
-//        return UserDataRepo(context = context)
-//    }
+
 
 }

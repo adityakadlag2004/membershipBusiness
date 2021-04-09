@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.di.DaggerFactoryComponent
+import com.android.membershipbusiness.other.Membership
 import com.android.membershipbusiness.repo.UserRepo
 import com.android.membershipbusiness.toast
 import com.android.membershipbusiness.viewModels.UserDataViewModel
@@ -29,8 +30,9 @@ class AddMembership : AppCompatActivity() {
 
         init()
 
+
         starttime_mem.setOnClickListener {
-            var time = ""
+            var time: String
             val picker =
                 MaterialTimePicker.Builder()
                     .setTimeFormat(TimeFormat.CLOCK_12H)
@@ -39,7 +41,6 @@ class AddMembership : AppCompatActivity() {
                     .setMinute(10)
                     .build()
 
-            var ampm = "AM"
             val manager = supportFragmentManager
             picker.show(manager, "tag")
 
@@ -59,7 +60,7 @@ class AddMembership : AppCompatActivity() {
 
         }
         endtime_mem.setOnClickListener {
-            var time="AM"
+            var time: String
             val picker =
                 MaterialTimePicker.Builder()
                     .setTimeFormat(TimeFormat.CLOCK_12H)
@@ -91,22 +92,15 @@ class AddMembership : AppCompatActivity() {
             val duration = membership_duration.text.toString()
             val ed_time = endtime_mem.text.toString()
             val fees = membership_Fees.text.toString()
+
+            val mem=Membership(title,category, desc, capacity, st_time, duration, ed_time, fees)
             if (title.isNotEmpty()) {
                 if (desc.isNotEmpty()) {
                     if (capacity.isNotEmpty()) {
                         if (st_time.isNotEmpty() && ed_time.isNotEmpty()) {
                             if (fees.isNotEmpty()) {
                                 if (duration.isNotEmpty()) {
-                                    viewModel.addMembership(
-                                        title,
-                                        category,
-                                        desc,
-                                        capacity,
-                                        st_time,
-                                        ed_time,
-                                        fees,
-                                        duration
-                                    )
+                                    viewModel.addMembership(mem)
                                 } else {
                                     toast("Duration Missing")
                                 }

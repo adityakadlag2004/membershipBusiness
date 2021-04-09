@@ -26,8 +26,7 @@ class Settings : Fragment() {
     private lateinit var viewModel: UserDataViewModel
     private lateinit var component: DaggerFactoryComponent
     private var currentuser: FirebaseUser? = null
-//    lateinit var panUri: Uri
-//    lateinit var addharUri: Uri
+
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.getReference(Constants.USERS)
 
@@ -104,11 +103,6 @@ class Settings : Fragment() {
             if (it!="null")
             view.memCount.text = it.toString()
         })
-
-
-
-
-
 
         return view
     }

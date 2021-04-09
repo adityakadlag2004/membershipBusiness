@@ -1,11 +1,10 @@
 package com.android.membershipbusiness.viewModels
 
-import android.content.ContentValues
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.membershipbusiness.other.Membership
 import com.android.membershipbusiness.repo.UserRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,10 +28,7 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
         return repository.checkstage()
     }
 
-//    fun updateUser(username:String?=null,contactnumber:String?=null)
-//    {
-//        repository.updateUser(username,contactnumber)
-//    }
+
 
 
     fun checkUserBusinessData(): LiveData<String> {
@@ -94,17 +90,10 @@ class UserDataViewModel(val repository: UserRepo) : ViewModel() {
     }
 
     fun addMembership(
-        title: String,
-        category: String? = null,
-        desc: String,
-        capacity: String,
-        stTime: String,
-        edTime: String,
-        fees: String,
-        duration:String
+        mem:Membership
     ) {
 
-        repository.addMemberShip(title,category,desc,capacity,stTime,edTime,fees,duration)
+        repository.addMemberShip(mem)
 
     }
 
