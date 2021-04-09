@@ -132,7 +132,7 @@ class RegisterActivity : AppCompatActivity() {
                                             }
                                         }
                                         else{
-                                            myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
+                                            myRef.child(user.uid).child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT)
                                                 .setValue(0)
                                         }
                                     }

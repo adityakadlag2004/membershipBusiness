@@ -14,7 +14,7 @@ import java.util.ArrayList
 class UserDataViewModel(val repository: UserRepo) : ViewModel() {
 
 
-    fun uploadToFirebase(uri: Uri) {
+    fun uploadProfileImage(uri: Uri) {
         CoroutineScope(Dispatchers.IO).launch {
             repository.uploadToFirebase(uri)
         }

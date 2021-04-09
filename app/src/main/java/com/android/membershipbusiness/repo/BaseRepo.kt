@@ -47,12 +47,12 @@ abstract class BaseRepo(val context: Context) {
     }
 
 
-    fun checkUserHasData(): MutableLiveData<String> {
+    fun checkUserHasDataPersonalData(): MutableLiveData<String> {
         val user = mAuthBase.currentUser
         if (user != null) {
             myRefBase.child(user.uid).addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.hasChild(Constants.USER_NAME) && snapshot.hasChild(Constants.USER_PHONENUMBER)) {
+                    if (snapshot.hasChild(Constants.PERSONAL_DETAILS)) {
                         userdataBase.value = "yes"
                     } else {
                         userdataBase.value = "no"
@@ -204,7 +204,7 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             membershipCount.value =
-                                snapshot.child(Constants.MEMBERSHIP_COUNT).value.toString()
+                                snapshot.child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT).value.toString()
                         }
 
                     }

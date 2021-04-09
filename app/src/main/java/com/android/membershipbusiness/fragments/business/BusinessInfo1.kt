@@ -66,11 +66,11 @@ class BusinessInfo1 : Fragment() {
         view.btn_continue_business1.setOnClickListener {
             if (add_Business_name.text!!.isNotEmpty() && add_Business_OwnerName.text!!.isNotEmpty()) {
                 view.progress_bar_data_Busi.visibility = View.VISIBLE
-                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_NAME)
+                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_NAME)
                     .setValue(add_Business_name.text.toString())
-                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_OWNER)
+                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_OWNER)
                     .setValue(add_Business_OwnerName.text.toString())
-                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_CUSTOMERS_COUNT).setValue("0")
+                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_CUSTOMERS_COUNT).setValue("0")
                 myRef.child(currentuser!!.uid).child(Constants.STAGE).setValue("stage1")
                 if (imageUri != null) {
                     viewModel.uploadToFirebaseBusiness(imageUri!!)
@@ -81,7 +81,7 @@ class BusinessInfo1 : Fragment() {
                         .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right)
                         .commit()
                 } else {
-                    myRef.child(currentuser!!.uid).child(Constants.USER_PROFILE_IMAGE)
+                    myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSiNESS_LOGO)
                         .setValue(Constants.DEFAULT_IMAGE_PROFILE)
                 }
             } else {

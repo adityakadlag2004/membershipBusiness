@@ -21,7 +21,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.getReference(Constants.USERS)
     private var mAuth = FirebaseAuth.getInstance()
-    var valueUpdated=false
+    var valueUpdated = false
     private var storage = FirebaseStorage.getInstance()
 
     private var storageRef: StorageReference = storage.getReference(Constants.USERS)
@@ -35,7 +35,8 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
             fileReference.putFile(uri)
                 .addOnSuccessListener {
                     fileReference.downloadUrl.addOnSuccessListener {
-                        myRef.child(currentuser!!.uid).child(Constants.USER_PROFILE_IMAGE)
+                        myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS)
+                            .child(Constants.USER_PROFILE_IMAGE)
                             .setValue(it.toString())
                         sendUserToMainActivity()
                     }
@@ -58,7 +59,8 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
             fileReference.putFile(uri)
                 .addOnSuccessListener {
                     fileReference.downloadUrl.addOnSuccessListener {
-                        myRef.child(currentuser!!.uid).child(Constants.BUSiNESS_LOGO)
+                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS)
+                            .child(Constants.BUSiNESS_LOGO)
                             .setValue(it.toString())
                     }
                 }
@@ -104,7 +106,8 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
             fileReference.putFile(imageUri)
                 .addOnSuccessListener {
                     fileReference.downloadUrl.addOnSuccessListener {
-                        myRef.child(currentuser!!.uid).child(Constants.PAN)
+                        myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS)
+                            .child(Constants.PAN)
                             .setValue(it.toString())
                     }
                 }
@@ -126,7 +129,8 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
             fileReference.putFile(imageUri)
                 .addOnSuccessListener {
                     fileReference.downloadUrl.addOnSuccessListener {
-                        myRef.child(currentuser!!.uid).child(Constants.ADDHAR)
+                        myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS)
+                            .child(Constants.ADDHAR)
                             .setValue(it.toString())
                     }
                 }
@@ -163,7 +167,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                     object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             if (snapshot.exists()) {
-                                if (snapshot.value != null&& !valueUpdated) {
+                                if (snapshot.value != null && !valueUpdated) {
                                     addmemCount(snapshot.value.toString().toInt())
                                 }
                             }
@@ -184,7 +188,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
         val final = value + 1
         if (user != null) {
             myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT).setValue(final)
-            valueUpdated=true
+            valueUpdated = true
         }
 
     }

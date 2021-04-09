@@ -52,16 +52,16 @@ class AddOwnerData : AppCompatActivity() {
         btn_continue_data.setOnClickListener {
             if (addName_data.text!!.isNotEmpty() && addPhone_data.text.isNotEmpty()) {
                 progress_bar_data.visibility = View.VISIBLE
-                myRef.child(currentuser!!.uid).child(Constants.USER_NAME)
+                myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS).child(Constants.USER_NAME)
                     .setValue(addName_data.text.toString())
-                myRef.child(currentuser!!.uid).child(Constants.USER_PHONENUMBER)
+                myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS).child(Constants.USER_PHONENUMBER)
                     .setValue(addPhone_data.text.toString())
                 myRef.child(currentuser!!.uid).child(Constants.BUSINESS_CUSTOMERS_COUNT).setValue("0")
                 myRef.child(currentuser!!.uid).child(Constants.STAGE).setValue("stage0")
                 myRef.child(currentuser!!.uid).child(Constants.DATAADDED).setValue("notall")
 
                 if (imageUri != null) {
-                    viewModel.uploadToFirebase(imageUri!!)
+                    viewModel.uploadProfileImage(imageUri!!)
                     progress_bar_data.visibility = View.VISIBLE
                 } else {
                     myRef.child(currentuser!!.uid).child(Constants.USER_PROFILE_IMAGE)

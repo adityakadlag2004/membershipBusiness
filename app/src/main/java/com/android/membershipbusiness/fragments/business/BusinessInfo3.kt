@@ -103,12 +103,12 @@ class BusinessInfo3 : Fragment() {
             if (businessType.isNotEmpty()) {
                 if (address.isNotEmpty()) {
                     if (imageList.isNotEmpty()) {
-                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_TYPE)
+                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_TYPE)
                             .setValue(businessType)
-                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_ADDRESS)
+                        myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_ADDRESS)
                             .setValue(address)
                         if (website.isNotEmpty())
-                            myRef.child(currentuser!!.uid).child(Constants.BUSINESS_WEBSITE)
+                            myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_WEBSITE)
                                 .setValue(website)
                         myRef.child(currentuser!!.uid).child(Constants.STAGE).setValue("stage3")
 

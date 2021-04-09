@@ -8,7 +8,7 @@ class MainViewModel(val repository: MainRepository) :ViewModel(){
 
     fun checkUserHasData(): LiveData<String>
     {
-        return repository.checkUserHasData()
+        return repository.checkUserHasDataPersonalData()
     }
 
     fun sendUsertoAddOwnerDataActivity() {

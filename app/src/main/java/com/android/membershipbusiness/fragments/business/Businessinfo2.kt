@@ -124,12 +124,12 @@ class Businessinfo2 : Fragment() {
                 && startDay.isNotEmpty() && endDay.isNotEmpty()
             ) {
                 if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    myRef.child(uid).child(Constants.BUSINESS_CONTACTNUMBER).setValue(contact)
-                    myRef.child(uid).child(Constants.BUSINESS_EMAIL).setValue(email)
-                    myRef.child(uid).child(Constants.BUSINESS_STARTTIME).setValue(startTime)
-                    myRef.child(uid).child(Constants.BUSINESS_ENDTIME).setValue(endTime)
-                    myRef.child(uid).child(Constants.BUSINESS_STARTDAY).setValue(startDay)
-                    myRef.child(uid).child(Constants.BUSINESS_ENDDAY).setValue(endDay)
+                    myRef.child(uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_CONTACTNUMBER).setValue(contact)
+                    myRef.child(uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_EMAIL).setValue(email)
+                    myRef.child(uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_STARTTIME).setValue(startTime)
+                    myRef.child(uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_ENDTIME).setValue(endTime)
+                    myRef.child(uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_STARTDAY).setValue(startDay)
+                    myRef.child(uid).child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_ENDDAY).setValue(endDay)
                     myRef.child(uid).child(Constants.STAGE).setValue("stage2")
                         .addOnSuccessListener {
                             val frag3 = BusinessInfo3()

@@ -83,7 +83,7 @@ class BusinessInfo4 : Fragment() {
                     if (addharUri.toString().isNotEmpty()) {
                         viewModel.uploadPanCard(panUri)
                         viewModel.uploadAddharCard(addharUri)
-                        myRef.child(currentuser!!.uid).child(Constants.UPIID).setValue(upiID)
+                        myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS).child(Constants.UPIID).setValue(upiID)
                         myRef.child(currentuser!!.uid).child(Constants.DATAADDED)
                             .setValue("inreview").addOnCompleteListener {
                                 viewModel.sendUserToMainActivity()
