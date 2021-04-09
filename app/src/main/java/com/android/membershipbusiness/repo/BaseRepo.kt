@@ -228,7 +228,7 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             totalCustomer.value =
-                                snapshot.child(Constants.BUSINESS_CUSTOMERS_COUNT).value.toString()
+                                snapshot.child(Constants.BUSINESS_DETAILS).child(Constants.BUSINESS_CUSTOMERS_COUNT).value.toString()
                         }
 
                     }

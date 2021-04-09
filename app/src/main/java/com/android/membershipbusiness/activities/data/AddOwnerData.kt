@@ -56,7 +56,8 @@ class AddOwnerData : AppCompatActivity() {
                     .setValue(addName_data.text.toString())
                 myRef.child(currentuser!!.uid).child(Constants.PERSONAL_DETAILS).child(Constants.USER_PHONENUMBER)
                     .setValue(addPhone_data.text.toString())
-                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_CUSTOMERS_COUNT).setValue("0")
+                myRef.child(currentuser!!.uid).child(Constants.BUSINESS_DETAILS)
+                    .child(Constants.BUSINESS_CUSTOMERS_COUNT).setValue(0)
                 myRef.child(currentuser!!.uid).child(Constants.STAGE).setValue("stage0")
                 myRef.child(currentuser!!.uid).child(Constants.DATAADDED).setValue("notall")
 
