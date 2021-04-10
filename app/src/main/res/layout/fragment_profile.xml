@@ -12,6 +12,17 @@
         android:orientation="vertical"
         tools:ignore="UselessLeaf,UselessParent">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar_profile"
+            app:title="@string/profile"
+            app:menu="@menu/pro_menu"
+            android:elevation="1dp"
+            android:layout_height="?attr/actionBarSize"
+            tools:targetApi="lollipop">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="405dp">
@@ -20,7 +31,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:background="@drawable/gradientbackground"
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -39,7 +49,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/monmedium"
                     android:text="@string/business_name"
-                    android:textColor="#fff"
+                    android:textColor="@color/black"
                     android:textSize="21sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -140,7 +150,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
 
@@ -167,7 +177,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
 
                         android:orientation="vertical">
 
@@ -206,7 +216,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
 
                         android:orientation="vertical">
 
@@ -245,7 +255,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
 
@@ -257,9 +267,8 @@
                             android:layout_marginLeft="25dp"
                             android:layout_marginTop="10dp"
                             app:fontFamily="@font/monregular"
-
-                            android:drawableStart="@drawable/ic_history"
-                            android:drawableLeft="@drawable/ic_history"
+                            android:drawableStart="@drawable/address"
+                            android:drawableLeft="@drawable/address"
                             android:drawablePadding="10dp"
                             android:gravity="center_horizontal"
                             android:padding="10dp"
@@ -271,7 +280,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
 
@@ -298,15 +307,6 @@
         </androidx.cardview.widget.CardView>
 
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/btn_circular"
-            android:fontFamily="@font/monmedium"
-            android:text="@string/edit"
-            android:textColor="#fff" />
 
 
         <View

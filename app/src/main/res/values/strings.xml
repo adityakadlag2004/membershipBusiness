@@ -90,4 +90,5 @@ or any Special Offers</string>
     <string name="reset_link">Check Your Email, We have sent you a Reset Link</string>
     <string name="notice_user_verify">Check Your Email, We have sent You Verification Link</string>
     <string name="no_data_available">No Data Available</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>

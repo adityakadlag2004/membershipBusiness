@@ -128,7 +128,9 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             owner.value =
-                                snapshot.child(Constants.BUSINESS_OWNER).value.toString()
+                                snapshot.child(
+                                    Constants.BUSINESS_DETAILS
+                                ).child(Constants.BUSINESS_OWNER).value.toString()
                         }
 
                     }
@@ -151,7 +153,9 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             profileImageBase.value =
-                                snapshot.child(Constants.BUSiNESS_LOGO).value.toString()
+                                snapshot.child(
+                                    Constants.BUSINESS_DETAILS
+                                ).child(Constants.BUSiNESS_LOGO).value.toString()
                             Log.d(ContentValues.TAG, "onDataChange: Repo$businessName")
                         }
                     }
@@ -179,7 +183,9 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             businessName.value =
-                                snapshot.child(Constants.BUSINESS_NAME).value.toString()
+                                snapshot.child(
+                                    Constants.BUSINESS_DETAILS
+                                ).child(Constants.BUSINESS_NAME).value.toString()
 
                             Log.d(ContentValues.TAG, "onDataChange: Repo$businessName")
                         }
@@ -251,7 +257,9 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             businessEmail.value =
-                                snapshot.child(Constants.BUSINESS_EMAIL).value.toString()
+                                snapshot.child(
+                                    Constants.BUSINESS_DETAILS
+                                ).child(Constants.BUSINESS_EMAIL).value.toString()
                         }
 
                     }
@@ -274,7 +282,9 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             contactNumber.value =
-                                snapshot.child(Constants.USER_PHONENUMBER).value.toString()
+                                snapshot.child(
+                                    Constants.BUSINESS_DETAILS
+                                ).child(Constants.BUSINESS_CONTACTNUMBER).value.toString()
                         }
 
                     }
@@ -297,7 +307,9 @@ abstract class BaseRepo(val context: Context) {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             address.value =
-                                snapshot.child(Constants.BUSINESS_ADDRESS).value.toString()
+                                snapshot.child(
+                                    Constants.BUSINESS_DETAILS
+                                ).child(Constants.BUSINESS_ADDRESS).value.toString()
                         }
 
                     }
