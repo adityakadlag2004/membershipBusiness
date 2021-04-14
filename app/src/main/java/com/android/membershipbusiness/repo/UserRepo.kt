@@ -1,6 +1,5 @@
 package com.android.membershipbusiness.repo
 
-import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.net.Uri
@@ -17,7 +16,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.util.ArrayList
 
-class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
+class UserRepo(contextUser: Context) : BaseRepo(contextUser) {
     private var database = FirebaseDatabase.getInstance()
     private var myRef = database.getReference(Constants.USERS)
     private var mAuth = FirebaseAuth.getInstance()
@@ -43,7 +42,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                 }
                 .addOnFailureListener {
                     Log.d(
-                        ContentValues.TAG,
+                        TAG,
                         "uploadToFirebase: Failed Uploading"
                     )
                 }
@@ -66,7 +65,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                 }
                 .addOnFailureListener {
                     Log.d(
-                        ContentValues.TAG,
+                        TAG,
                         "uploadToFirebase: Failed Uploading"
                     )
                 }
@@ -89,7 +88,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                     }
                     .addOnFailureListener {
                         Log.d(
-                            ContentValues.TAG,
+                            TAG,
                             "uploadToFirebase: Failed Uploading"
                         )
                     }
@@ -113,7 +112,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                 }
                 .addOnFailureListener {
                     Log.d(
-                        ContentValues.TAG,
+                        TAG,
                         "uploadToFirebase: Failed Uploading"
                     )
                 }
@@ -136,7 +135,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
                 }
                 .addOnFailureListener {
                     Log.d(
-                        ContentValues.TAG,
+                        TAG,
                         "uploadToFirebase: Failed Uploading"
                     )
                 }
@@ -148,16 +147,6 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
     ) {
 
         val user = mAuth.currentUser
-
-//        var hash = HashMap<String, String>()
-//        hash["title"] = title
-//        hash["category"] = category ?: ""
-//        hash["desc"] = desc
-//        hash["capacity"] = capacity
-//        hash["stTime"] = stTime
-//        hash["edTime"] = edTime
-//        hash["fees"] = fees
-//        hash["duration"]=duration
 
         if (user != null) {
             myRef.child(user.uid).child(Constants.MEMBERSHIPS).push().setValue(membership)
@@ -187,7 +176,7 @@ class UserRepo(val contextUser: Context) : BaseRepo(contextUser) {
         val user = mAuth.currentUser
         val final = value + 1
         if (user != null) {
-            myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT).setValue(final)
+            myRef.child(user.uid).child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT).setValue(final)
             valueUpdated = true
         }
 

@@ -4,7 +4,7 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="already_have_an_account_sign_in">Already have an Account? Sign In</string>
-    <string name="dont_have_an_account_sign_up">New to ?? Sign up Now</string>
+    <string name="dont_have_an_account_sign_up">Dont have an Account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_out">Sign Out</string>
     <string name="name">Name</string>
@@ -91,4 +91,7 @@ or any Special Offers</string>
     <string name="notice_user_verify">Check Your Email, We have sent You Verification Link</string>
     <string name="no_data_available">No Data Available</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="google">Google</string>
+    <string name="log_into_your_account">Log Into Your Account</string>
+    <string name="or_continue_with">or Continue With</string>
 </resources>

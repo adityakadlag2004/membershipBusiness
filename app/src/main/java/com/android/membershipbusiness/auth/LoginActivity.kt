@@ -23,7 +23,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthViewModel
@@ -104,6 +107,26 @@ class LoginActivity : AppCompatActivity() {
                     if (user != null) {
                         myRef.child(user.uid).child(Constants.USER_EMAIL).setValue(user.email)
                         myRef.child(user.uid).child(Constants.USER_ID).setValue(user.uid)
+                        myRef.child(user.uid).child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT)
+                            .addValueEventListener(
+                                object : ValueEventListener {
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        if (snapshot.exists()) {
+                                            if (snapshot.value != null) {
+                                                Log.d(TAG, "onDataChange: has data")
+                                            }
+                                        }
+                                        else{
+                                            myRef.child(user.uid).child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT)
+                                                .setValue(0)
+                                        }
+                                    }
+
+                                    override fun onCancelled(error: DatabaseError) {
+                                        Log.d(TAG, "onCancelled: cancel")
+                                    }
+
+                                })
                     }
                     Intent(this, MainActivity::class.java).also {
                         startActivity(it)

@@ -122,7 +122,7 @@ class RegisterActivity : AppCompatActivity() {
                     val user = mAuth.currentUser
                     if (user != null) {
                         myRef.child(user.uid).child(Constants.USER_EMAIL).setValue(user.email)
-                        myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
+                        myRef.child(user.uid).child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT)
                             .addValueEventListener(
                                 object : ValueEventListener {
                                     override fun onDataChange(snapshot: DataSnapshot) {

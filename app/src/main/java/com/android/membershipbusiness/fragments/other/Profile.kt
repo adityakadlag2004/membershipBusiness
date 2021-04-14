@@ -1,11 +1,10 @@
 package com.android.membershipbusiness.fragments.other
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.di.DaggerFactoryComponent
@@ -18,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 
@@ -34,6 +34,7 @@ class Settings : Fragment() {
         super.onCreate(savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
         currentuser = mAuth.currentUser
+
     }
 
     override fun onCreateView(
@@ -58,21 +59,29 @@ class Settings : Fragment() {
 
         })
 
+
+
+        view.toolbar_profile.setNavigationOnClickListener {
+            if (it.id==R.id.settings_profile)
+            {
+                Toast.makeText(view.context, "Yeah", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
         view.logoutText.setOnClickListener {
             mAuth.signOut()
             viewModel.sendUserToLoginActivity()
             activity!!.finish()
         }
         viewModel.getBusinessName().observe(viewLifecycleOwner, {
-            if (it!="null")
-            {
+            if (it != "null") {
                 view.setting_business_name.text = it.toString()
             }
         })
 
         viewModel.getMemberShipCount().observe(viewLifecycleOwner, {
-            if (it==null)
-            {
+            if (it == null) {
                 view.memberShipCount_settings.text = "0"
             }
             view.memberShipCount_settings.text = it.toString()
@@ -83,25 +92,25 @@ class Settings : Fragment() {
         })
 
         viewModel.getOwner().observe(viewLifecycleOwner, {
-            if (it!="null")
-            view.usernameFrag.text = it.toString()
+            if (it != "null")
+                view.usernameFrag.text = it.toString()
         })
 
 
         viewModel.getBusinessEmail().observe(viewLifecycleOwner, {
-            if (it!="null")
-            view.emailFrag.text = it.toString()
+            if (it != "null")
+                view.emailFrag.text = it.toString()
         })
 
 
         viewModel.getContactNumber().observe(viewLifecycleOwner, {
-            if (it!="null")
-            view.phoneFrag.text = it.toString()
+            if (it != "null")
+                view.phoneFrag.text = it.toString()
         })
 
         viewModel.getAddress().observe(viewLifecycleOwner, {
-            if (it!="null")
-            view.memCount.text = it.toString()
+            if (it != "null")
+                view.memCount.text = it.toString()
         })
 
         return view
