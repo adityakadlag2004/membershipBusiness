@@ -38,9 +38,9 @@
                 android:hint="@string/email"
                 android:elevation="8dp"
                 tools:targetApi="lollipop"
+                android:background="@drawable/editback"
                 android:drawablePadding="12dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/editback"
                 android:drawableStart="@drawable/custom_email_icon"
                 android:padding="10dp"
                 android:fontFamily="@font/monmedium"
@@ -71,13 +71,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{()-> viewmodel.register()}"
-            android:layout_marginStart="65dp"
+            android:layout_marginStart="70dp"
             android:background="@drawable/btn_circular"
             android:textAllCaps="false"
             android:fontFamily="@font/monmedium"
             android:textColor="@color/white"
             android:layout_marginTop="60dp"
-            android:layout_marginEnd="65dp"
+            android:layout_marginEnd="70dp"
             android:text="@string/sign_up" />
 
         <TextView
