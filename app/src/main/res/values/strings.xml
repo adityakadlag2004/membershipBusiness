@@ -3,7 +3,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
-    <string name="already_have_an_account_sign_in">Already have an Account? Sign In</string>
+    <string name="already_have_an_account_sign_in">Already have an Account?</string>
     <string name="dont_have_an_account_sign_up">Dont have an Account?</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_out">Sign Out</string>
@@ -94,4 +94,5 @@ or any Special Offers</string>
     <string name="google">Google</string>
     <string name="log_into_your_account">Log Into Your Account</string>
     <string name="or_continue_with">or Continue With</string>
+    <string name="register_your_account">Register Your Account</string>
 </resources>

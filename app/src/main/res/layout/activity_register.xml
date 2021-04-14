@@ -19,10 +19,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/log_into_your_account"
+            android:text="@string/register_your_account"
             android:layout_marginTop="200dp"
             android:textAlignment="center"
-            android:textColor="@color/faintGray"
+            android:textColor="@color/grey"
             android:gravity="center_horizontal"
             android:fontFamily="@font/monmedium"
             android:textSize="16sp"
@@ -83,11 +83,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/txt_Reg"
-            android:layout_gravity="center"
-            android:text="@string/already_have_an_account_sign_in"
-            android:textSize="12sp"
+            android:fontFamily="@font/monmedium"
+            android:textSize="13sp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/grey"
+            android:textAlignment="center"
+            android:text="@string/or_continue_with"
             android:layout_marginTop="20dp"/>
 
         <androidx.cardview.widget.CardView
@@ -123,5 +124,44 @@
                     android:gravity="center_horizontal" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/txt_Reg"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/already_have_an_account_sign_in"
+                android:textSize="12sp"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/monmedium"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/monmedium"
+                android:text="@string/sign_in"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
     </LinearLayout>
 </layout>
