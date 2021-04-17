@@ -36,6 +36,7 @@ class AuthRepository(context: Context) : BaseRepo(context) {
                                     context.startActivity(it)
                                 }
                             } else {
+
                                 Toast.makeText(
                                     context,
                                     "First Verify Your Email",
@@ -99,6 +100,7 @@ class AuthRepository(context: Context) : BaseRepo(context) {
         } else {
             Toast.makeText(context, "Fill The Fields", Toast.LENGTH_SHORT).show()
         }
+
 
     }
 }

@@ -61,12 +61,7 @@ class Settings : Fragment() {
 
 
 
-        view.toolbar_profile.setNavigationOnClickListener {
-            if (it.id==R.id.settings_profile)
-            {
-                Toast.makeText(view.context, "Yeah", Toast.LENGTH_SHORT).show()
-            }
-        }
+
 
 
         view.logoutText.setOnClickListener {

@@ -7,13 +7,13 @@
     android:orientation="vertical">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="112dp"
-        android:layout_height="112dp"
-        android:id="@+id/settings_business_logo"
-        android:layout_gravity="center"
-        android:layout_marginTop="38dp"
-        android:src="@drawable/user_image"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:id="@+id/settings_business_logo"
+            android:layout_gravity="center"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/user_image"/>
 
 
     <TextView
