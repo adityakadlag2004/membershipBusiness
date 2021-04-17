@@ -4,15 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.activities.MainActivity
-import com.android.membershipbusiness.databinding.ActivityLoginAcitivityBinding
 import com.android.membershipbusiness.di.DaggerFactoryComponent
 import com.android.membershipbusiness.other.Constants
 import com.android.membershipbusiness.repo.AuthRepository
+import com.android.membershipbusiness.toast
+import com.android.membershipbusiness.toastLong
 import com.android.membershipbusiness.viewModels.AuthViewModel
 import com.android.mvvmdatabind2.di.modules.FactoryModule
 import com.android.mvvmdatabind2.di.modules.RepositoryModule
@@ -27,6 +28,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_login_acitivity.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthViewModel
@@ -54,14 +56,28 @@ class LoginActivity : AppCompatActivity() {
         viewModel =
             ViewModelProviders.of(this, component.getFactory()).get(AuthViewModel::class.java)
 
-        val binding = DataBindingUtil
-            .setContentView<ActivityLoginAcitivityBinding>(this, R.layout.activity_login_acitivity)
-            .apply {
-                this.lifecycleOwner = this@LoginActivity
-                this.viewmodel = viewModel
-            }
 
-        binding.btnGoogleLogin.setOnClickListener {
+        btn_log.setOnClickListener {
+            val email=email_edit_log.text.toString()
+            val password=password_edit_log.text.toString()
+            if (email.isNotEmpty() && password.isNotEmpty())
+            {
+                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    viewModel.login(email, password)
+                }
+                else{
+                    toast("Enter a valid Email")
+                }
+            }
+            else{
+                toast("Fill the Fields")
+            }
+        }
+
+        forgotpass.setOnClickListener {
+            viewModel.sendUsertoForgotPassAct()
+        }
+        btn_google_login.setOnClickListener {
             signIn()
         }
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -70,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-        binding.txtLog.setOnClickListener {
+        txt_Log.setOnClickListener {
             Intent(this, RegisterActivity::class.java).also { startActivity(it) }
         }
     }

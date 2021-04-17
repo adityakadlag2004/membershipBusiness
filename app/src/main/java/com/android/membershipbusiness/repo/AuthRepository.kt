@@ -62,18 +62,11 @@ class AuthRepository(context: Context) : BaseRepo(context) {
 
 
     fun register(email: String, password: String) {
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             mAuth.currentUser!!.sendEmailVerification().addOnCompleteListener {
-                                Toast.makeText(
-                                    context,
-                                    "Check your Email For Verification",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-
                                 val user = mAuth.currentUser
                                 if (user != null) {
                                     myRef.child(user.uid).child(USER_EMAIL).setValue(email)
@@ -94,14 +87,8 @@ class AuthRepository(context: Context) : BaseRepo(context) {
                             Log.d(ContentValues.TAG, "login: Login Failed :- ${task.exception}")
                         }
                     }
-            } else {
-                Toast.makeText(context, "Enter a valid Email Address", Toast.LENGTH_SHORT).show()
             }
-        } else {
-            Toast.makeText(context, "Fill The Fields", Toast.LENGTH_SHORT).show()
-        }
-
 
     }
-}
+
 

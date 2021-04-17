@@ -15,15 +15,19 @@ class AuthViewModel(val repository: AuthRepository) :ViewModel() {
 
     val password: MutableLiveData<String> = MutableLiveData()
 
-    fun login() = CoroutineScope(Dispatchers.IO).launch {
-        repository.login(email.value.toString(), password.value.toString())
+    fun login(email:String,password:String) {
+        repository.login(email, password)
     }
 
-    fun register() = CoroutineScope(Dispatchers.IO).launch {
-        repository.register(email.value.toString(), password.value.toString())
+    fun register(email:String,password:String) {
+        repository.register(email, password)
     }
 
     fun forgotPassword() {
+        repository.sendUserToForgotPassWordActivity()
+    }
+
+    fun sendUsertoForgotPassAct() {
         repository.sendUserToForgotPassWordActivity()
     }
 }

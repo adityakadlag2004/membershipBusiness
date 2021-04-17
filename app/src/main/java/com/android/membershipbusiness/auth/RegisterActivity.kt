@@ -4,15 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.android.membershipbusiness.R
 import com.android.membershipbusiness.activities.MainActivity
-import com.android.membershipbusiness.databinding.ActivityRegisterBinding
 import com.android.membershipbusiness.di.DaggerFactoryComponent
 import com.android.membershipbusiness.other.Constants
 import com.android.membershipbusiness.repo.AuthRepository
+import com.android.membershipbusiness.toast
+import com.android.membershipbusiness.toastLong
 import com.android.membershipbusiness.viewModels.AuthViewModel
 import com.android.mvvmdatabind2.di.modules.FactoryModule
 import com.android.mvvmdatabind2.di.modules.RepositoryModule
@@ -27,6 +28,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_login_acitivity.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthViewModel
@@ -50,13 +53,24 @@ class RegisterActivity : AppCompatActivity() {
             .build() as DaggerFactoryComponent
         viewModel =
             ViewModelProviders.of(this, component.getFactory()).get(AuthViewModel::class.java)
-        val binding = DataBindingUtil
-            .setContentView<ActivityRegisterBinding>(this, R.layout.activity_register)
-            .apply {
-                this.lifecycleOwner = this@RegisterActivity
-                this.viewmodel = viewModel
-            }
 
+        btn_Reg.setOnClickListener {
+            val email=email_edit_Reg.text.toString()
+            val password=password_edit_Reg.text.toString()
+            if (email.isNotEmpty() && password.isNotEmpty())
+            {
+                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    viewModel.register(email, password)
+                    toastLong("Verify Your Email by clicking link we have sent You")
+                }
+                else{
+                    toast("Enter a valid Email")
+                }
+            }
+            else{
+                toast("Fill the Fields")
+            }
+        }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -65,10 +79,10 @@ class RegisterActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        binding.btnGoogleRegister.setOnClickListener {
+        btn_google_register.setOnClickListener {
             signIn()
         }
-        binding.txtReg.setOnClickListener {
+        txt_Reg.setOnClickListener {
             Intent(this, LoginActivity::class.java).also { startActivity(it) }
         }
     }

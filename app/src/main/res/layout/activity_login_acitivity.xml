@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="viewmodel"
-            type="com.android.membershipbusiness.viewModels.AuthViewModel" />
-    </data>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".activities.auth.LoginActivity">
-
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,8 +39,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/editback"
                 android:id="@+id/email_edit_log"
-                android:text="@={viewmodel.email}"
-
+                android:textSize="15sp"
                 android:drawableLeft="@drawable/ic_email">
 
             </EditText>
@@ -60,7 +52,6 @@
                 android:id="@+id/password_edit_log"
                 android:drawablePadding="12dp"
                 android:drawableStart="@drawable/custom_pass_icon"
-                android:text="@={viewmodel.password}"
                 android:autofillHints="@string/password"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
@@ -78,9 +69,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/forgot_password"
+            android:id="@+id/forgotpass"
             android:textColor="@color/blue"
             android:textAlignment="center"
-            android:onClick="@{()-> viewmodel.forgotPassword()}"
             android:textAllCaps="false"
             android:textSize="12sp"
             android:layout_marginEnd="40dp"
@@ -94,7 +85,6 @@
             android:id="@+id/btn_log"
             android:text="@string/sign_in"
             android:textColor="@color/white"
-            android:onClick="@{()-> viewmodel.login()}"
             android:textAllCaps="false"
             android:fontFamily="@font/monmedium"
             android:layout_marginTop="40dp"
@@ -194,4 +184,3 @@
         </LinearLayout>
 
     </LinearLayout>
-</layout>
