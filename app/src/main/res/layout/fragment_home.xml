@@ -21,7 +21,6 @@
             android:layout_marginTop="140dp"
             android:visibility="gone"
             app:lottie_loop="true" />
-
         <TextView
             android:id="@+id/text_notice"
             android:layout_width="wrap_content"
@@ -34,7 +33,6 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:visibility="gone" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,8 +74,6 @@
                 android:background="@drawable/btn_circular"
        />
         </LinearLayout>
-
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,6 +88,9 @@
             android:id="@+id/add_memberships"
             android:background="@drawable/btn_circular"
             android:visibility="gone"/>
+
+
+        
 
     </RelativeLayout>
 

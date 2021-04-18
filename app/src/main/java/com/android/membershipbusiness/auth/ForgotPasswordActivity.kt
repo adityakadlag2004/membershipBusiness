@@ -29,7 +29,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
         init()
-
+        email_edit_forgot.setText("")
         if (decision==0)
         {
             toolbar_forgotPassword.title = "Reset Password"

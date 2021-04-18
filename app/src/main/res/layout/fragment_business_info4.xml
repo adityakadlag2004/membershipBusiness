@@ -58,7 +58,7 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:id="@+id/panView"
                 android:layout_below="@id/notice_addPan"
@@ -67,7 +67,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:contentDescription="@string/to"
-                android:src="@drawable/upload_24"
+                android:src="@drawable/pan"
 
                 />
 
@@ -89,7 +89,7 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_below="@id/notice_addAddhar"
                 android:layout_centerInParent="true"
@@ -98,33 +98,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:contentDescription="@string/to"
-                android:src="@drawable/upload_24"
+                android:src="@drawable/addhar"
 
                 />
 
         </RelativeLayout>
 
-        <!--        <com.google.android.material.textfield.TextInputLayout-->
-        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="40dp"-->
-        <!--            android:layout_marginTop="30dp"-->
-        <!--            android:layout_marginEnd="40dp"-->
-        <!--            android:drawablePadding="12dp"-->
-        <!--            android:hint="@string/google_pay_number"-->
-        <!--            app:endIconMode="clear_text">-->
 
-        <!--            <com.google.android.material.textfield.TextInputEditText-->
-        <!--                android:id="@+id/google_pay_number"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:fontFamily="@font/monmedium"-->
-        <!--                >-->
-
-        <!--            </com.google.android.material.textfield.TextInputEditText>-->
-
-        <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
 
         <ProgressBar
