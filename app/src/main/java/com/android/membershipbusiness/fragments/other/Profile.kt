@@ -76,7 +76,7 @@ class Settings : Fragment() {
         })
 
         viewModel.getMemberShipCount().observe(viewLifecycleOwner, {
-            if (it == null) {
+            if (it == "null") {
                 view.memberShipCount_settings.text = "0"
             }
             view.memberShipCount_settings.text = it.toString()

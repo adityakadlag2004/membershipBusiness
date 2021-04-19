@@ -36,7 +36,6 @@ abstract class BaseRepo(val context: Context) {
     var userverified = MutableLiveData<String>()
     var contactNumber = MutableLiveData<String>()
 
-    var curUser = mAuthBase.currentUser
 
 
     fun sendUserToMainActivity() {

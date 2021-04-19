@@ -146,13 +146,13 @@ class Businessinfo2 : Fragment() {
             }
         }
         val days = arrayOf(
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thur",
+            "Fri",
+            "Sat",
+            "Sun"
         )
         val adapter: ArrayAdapter<String> = ArrayAdapter(
             view.context,

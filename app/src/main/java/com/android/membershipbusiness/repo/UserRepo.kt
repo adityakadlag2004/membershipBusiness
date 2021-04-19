@@ -151,7 +151,7 @@ class UserRepo(contextUser: Context) : BaseRepo(contextUser) {
         if (user != null) {
             myRef.child(user.uid).child(Constants.MEMBERSHIPS).push().setValue(membership)
 
-            myRef.child(user.uid).child(Constants.MEMBERSHIP_COUNT)
+            myRef.child(user.uid).child(Constants.BUSINESS_DETAILS).child(Constants.MEMBERSHIP_COUNT)
                 .addValueEventListener(
                     object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
